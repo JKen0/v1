@@ -10,6 +10,8 @@ const getWebsiteTitle = (pathname: string) => {
     return 'Grades';
   } else if (pathname === '/spotify') {
     return 'Spotify';
+  } else if (pathname === '/projects') {
+    return 'Projects';
   } else {
     return 'Not Found';
   }

@@ -12,14 +12,6 @@ interface TopArtistsProps {
     data: TopArtistsTypes[];
 }
 
-function srcset(image: string, size: number, rows = 1, cols = 1) {
-    return {
-        src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-        srcSet: `${image}?w=${size * cols}&h=${size * rows
-            }&fit=crop&auto=format&dpr=2 2x`,
-    };
-}
-
 const numRowsCol = (num: number): number => {
     return num === 0 ? 2 : 1
 }

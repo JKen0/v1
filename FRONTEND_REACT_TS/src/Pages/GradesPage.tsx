@@ -9,6 +9,7 @@ import { FilterOptionInterface, GridLayoutTypes, CareerCount, DepartmentCount } 
 import { json } from 'react-router-dom';
 import { SelectChangeEvent } from '@mui/material/Select';
 import GradesHelpModal from '../components/GradesHelpModal';
+import { Container } from '@mui/material';
 
 const GradesPage = () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -190,12 +191,12 @@ const GradesPage = () => {
   };
 
   return (
-    <div style={{ minWidth: "800px" }}>
+    <Container maxWidth="lg" style={{ minWidth: "800px" }}>
       <GridFilterBar filterOptions={filterOptions} selectedFilters={selectedFilters} handleFilterChange={handleFilterChange} handleChangeDepartments={handleChangeDepartments} resetFilters={resetFilters} disableFilters={disableFilters} />
       {selectedFilters.gridLayoutFilter === "normal" && <GradesGrid gridData={filteredData} setModalOpen={openModal} />}
       {selectedFilters.gridLayoutFilter === "term-grouping" && <GradesGridGrouping gridData={jsonData} setModalOpen={openModal} />}
       <GradesHelpModal open={modalShowing} handleClose={closeModal} />
-    </div>
+    </Container>
   )
 }
 

@@ -3,7 +3,6 @@ import ListGroup from '../components/ListGroup';
 import Alert from '../components/Alert';
 import Button from '../components/Button';
 import 'bootstrap/dist/css/bootstrap.css';
-import MultipleSelectPlaceholder from '../components/test';
 
 const HomePage = () => {
     const items = [
@@ -26,7 +25,6 @@ const HomePage = () => {
           <ListGroup items={items} heading="Cities" onSelectItem={handleSelectItem} />    
           {showAlert && <Alert onClickCloseButton={() => {setShowAlert(false)}}>Hello <span>World</span> DinkDonk!</Alert>}
 
-        <MultipleSelectPlaceholder />
           <Button buttonText = "Primary" onClick={() => {setShowAlert(true)}} />
 
 

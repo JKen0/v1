@@ -108,9 +108,9 @@ const NavBar = () => {
                                     Spotify
                                 </MenuItem>
                             </Link>
-                            <Link style={{ color: "white", textDecoration: "none" }} to="game">
+                            <Link style={{ color: "white", textDecoration: "none" }} to="games">
                                 <MenuItem onClick={handleCloseNavMenu}>
-                                    Game
+                                    Games
                                 </MenuItem>
                             </Link>
                         </Menu>

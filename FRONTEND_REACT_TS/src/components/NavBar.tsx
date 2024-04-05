@@ -87,21 +87,32 @@ const NavBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link style={{ color: "white", textDecoration: "none" }} to="/">Home</Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link style={{ color: "white", textDecoration: "none" }} to="grades">Grades</Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link style={{ color: "white", textDecoration: "none" }} to="projects">Projects</Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link style={{ color: "white", textDecoration: "none" }} to="spotify">Spotify</Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link style={{ color: "white", textDecoration: "none" }} to="game">Game</Link>
-                            </MenuItem>
+
+                            <Link style={{ color: "white", textDecoration: "none" }} to="/">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    Home
+                                </MenuItem>
+                            </Link>
+                            <Link style={{ color: "white", textDecoration: "none" }} to="grades">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    Grades
+                                </MenuItem>
+                            </Link>
+                            <Link style={{ color: "white", textDecoration: "none" }} to="projects">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    Projects
+                                </MenuItem>
+                            </Link>
+                            <Link style={{ color: "white", textDecoration: "none" }} to="spotify">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    Spotify
+                                </MenuItem>
+                            </Link>
+                            <Link style={{ color: "white", textDecoration: "none" }} to="game">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    Game
+                                </MenuItem>
+                            </Link>
                         </Menu>
                     </Box>
                     <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -124,32 +135,31 @@ const NavBar = () => {
                         JKen0
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Button
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            <Link style={{ color: "white", textDecoration: "none" }} to="/">Home</Link>
-                        </Button>
-                        <Button
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-
-                        >
-                            <Link style={{ color: "white", textDecoration: "none" }} to="grades">Grades</Link>
-                        </Button>
-                        <Button
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            <Link style={{ color: "white", textDecoration: "none" }} to="projects">Projects</Link>
-                        </Button>
-                        <Button
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            <Link style={{ color: "white", textDecoration: "none" }} to="spotify">Spotify</Link>
-                        </Button>
-                        <Button
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            <Link style={{ color: "white", textDecoration: "none" }} to="game">Game</Link>
-                        </Button>
+                        <Link style={{ color: "white", textDecoration: "none" }} to="/">
+                            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                                Home
+                            </Button>
+                        </Link>
+                        <Link style={{ color: "white", textDecoration: "none" }} to="grades">
+                            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                                Grades
+                            </Button>
+                        </Link>
+                        <Link style={{ color: "white", textDecoration: "none" }} to="projectts">
+                            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                                Projects
+                            </Button>
+                        </Link>
+                        <Link style={{ color: "white", textDecoration: "none" }} to="spotify">
+                            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                                Spotify
+                            </Button>
+                        </Link>
+                        <Link style={{ color: "white", textDecoration: "none" }} to="games">
+                            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                                Games
+                            </Button>
+                        </Link>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>

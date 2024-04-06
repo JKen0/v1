@@ -4,9 +4,10 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { Link as Link2 } from "react-router-dom";
 
 interface ProjectSidearInterface {
-    archives: ReadonlyArray<{
+    pages: ReadonlyArray<{
         url: string;
         title: string;
     }>;
@@ -14,12 +15,13 @@ interface ProjectSidearInterface {
     social: ReadonlyArray<{
         icon: React.ElementType;
         name: string;
+        url: string;
     }>;
     title: string;
 }
 
 export default function ProjectSidebar(props: ProjectSidearInterface) {
-    const { archives, description, social, title } = props;
+    const { pages, description, social, title } = props;
 
     return (
         <Grid item xs={12} md={4}>
@@ -30,12 +32,16 @@ export default function ProjectSidebar(props: ProjectSidearInterface) {
                 <Typography>{description}</Typography>
             </Paper>
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-                Archives
+                Pages
             </Typography>
-            {archives.map((archive) => (
-                <Link display="block" variant="body1" href={archive.url} key={archive.title}>
-                    {archive.title}
-                </Link>
+            {pages.map((pages) => (
+                <Link2
+                    key={pages.title}  // Use a unique key for each Link in the list
+                    to={pages.url}
+                    style={{ display: "block" }}
+                >
+                    {pages.title}
+                </Link2>
             ))}
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                 Social
@@ -44,9 +50,11 @@ export default function ProjectSidebar(props: ProjectSidearInterface) {
                 <Link
                     display="block"
                     variant="body1"
-                    href="#"
+                    href={network.url}
                     key={network.name}
                     sx={{ mb: 0.5 }}
+                    target="_blank"
+                    rel="noopener noreferrer" 
                 >
                     <Stack direction="row" spacing={1} alignItems="center">
                         <network.icon />

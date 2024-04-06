@@ -15,6 +15,7 @@ import ProjectKATNNBody from './ProjectBody/ProjectKATNNBody';
 import ProjectKATCEstBody from './ProjectBody/ProjectKATCEstBody';
 import ProjectChainlinkBody from './ProjectBody/ProjectChainlinkBody';
 
+import { LinkedIn } from '@mui/icons-material';
 
 const projectList: Array<ProjectListType> = [
     {
@@ -51,13 +52,16 @@ const projectList: Array<ProjectListType> = [
 
 const sidebar = {
     title: 'About',
-    description:
-        'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
-    archives: [],
+    description: 'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+    pages: [
+        { title: "Home", url: "/" },
+        { title: "Grades", url: "grades" },
+        { title: "Spotify", url: "spotify" },
+        { title: "Games", url: "games" },
+    ],
     social: [
-        { name: 'GitHub', icon: GitHubIcon },
-        { name: 'X', icon: XIcon },
-        { name: 'Facebook', icon: FacebookIcon },
+        { name: 'GitHub', icon: GitHubIcon, url: "https://github.com/JKen0" },
+        { name: 'LinkedIn', icon: LinkedIn, url: "https://www.linkedin.com/in/kennethmatira/" },
     ],
 };
 
@@ -79,7 +83,7 @@ const ChooseProjectLayout = ({ setCurrentPage }: { setCurrentPage: (e: ProjectPa
 
                 };
             })}
-
+            <div />
             <Divider />
 
             <Typography style={{ paddingTop: "20px" }} variant="h4" gutterBottom>
@@ -125,7 +129,6 @@ const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: 
                 }
             })}
 
-
             <Grid container spacing={5} sx={{ mt: 3 }}>
                 <Grid
                     item
@@ -142,12 +145,12 @@ const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: 
                 <ProjectSidebar
                     title={sidebar.title}
                     description={sidebar.description}
-                    archives={sidebar.archives}
+                    pages={sidebar.pages}
                     social={sidebar.social}
                 />
             </Grid>
 
-            <Divider />
+            <Divider style={{ paddingTop: "20px" }} />
 
             <Typography style={{ paddingTop: "10px", paddingBottom: "10px" }} variant="h4">
                 Other Projects

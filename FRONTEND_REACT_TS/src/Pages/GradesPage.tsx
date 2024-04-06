@@ -13,7 +13,7 @@ import { Container } from '@mui/material';
 
 const GradesPage = () => {
   const queryParams = new URLSearchParams(window.location.search);
-  const initialGridLayout = queryParams.has('gridlayout') ? queryParams.get('gridlayout') as GridLayoutTypes : "normal";
+  const initialGridLayout = queryParams.has('gridlayout') ? queryParams.get('gridlayout') as GridLayoutTypes : "term-grouping";
   const [jsonData, setJsonData] = useState<GridDataInterface[]>([]);
   const [filteredData, setFilteredData] = useState<GridDataInterface[]>([]);
   const [disableFilters, setDisableFilters] = useState<boolean>(false);

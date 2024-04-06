@@ -5,43 +5,32 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import { ProjectListType, ProjectPagesTypes } from '../Types/ProjectsTypes';
 
-interface FeaturedPostProps {
-    post: {
-        date: string;
-        description: string;
-        image: string;
-        imageLabel: string;
-        title: string;
-    };
-}
+const CHARACTER_LIMIT = 225;
 
-export default function FeaturedPost(props: FeaturedPostProps) {
-    const { post } = props;
+
+export default function FeaturedPost({ post, setCurrentPage }: { post: ProjectListType, setCurrentPage: (e: ProjectPagesTypes) => void }) {
 
     return (
         <Grid item xs={12} md={6}>
-            <CardActionArea component="a" href="#">
+            <CardActionArea component="a" onClick={() => setCurrentPage(post.id)}>
                 <Card sx={{ display: 'flex' }}>
                     <CardContent sx={{ flex: 1 }}>
                         <Typography component="h2" variant="h5">
                             {post.title}
                         </Typography>
                         <Typography variant="subtitle1" color="text.secondary">
-                            {post.date}
+                            {post.contributors}
                         </Typography>
                         <Typography variant="subtitle1" paragraph>
-                            {post.description}
-                        </Typography>
-                        <Typography variant="subtitle1" color="primary">
-                            Continue reading...
+                            {post.description.length > CHARACTER_LIMIT ? post.description.slice(0, CHARACTER_LIMIT) + "..." : post.description}
                         </Typography>
                     </CardContent>
                     <CardMedia
                         component="img"
                         sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
                         image={post.image}
-                        alt={post.imageLabel}
                     />
                 </Card>
             </CardActionArea>

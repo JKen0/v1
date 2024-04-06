@@ -4,19 +4,10 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
+import { ProjectListType } from '../Types/ProjectsTypes';
 
-interface ChoosePostTileProps {
-    post: {
-        description: string;
-        image: string;
-        imageText: string;
-        linkText: string;
-        title: string;
-    };
-}
 
-export default function ChoosePostTile(props: ChoosePostTileProps) {
-    const { post } = props;
+export default function ChoosePostTile({ post }: { post: ProjectListType }) {
 
     return (
         <Paper

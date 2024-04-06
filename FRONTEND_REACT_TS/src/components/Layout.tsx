@@ -1,6 +1,7 @@
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const getWebsiteTitle = (pathname: string) => {
   if (pathname === '/') {
@@ -45,6 +46,10 @@ const Layout = () => {
 
       <NavBar />
       <Outlet />
+      <Footer
+        title="Kenneth Matira"
+        description="This Website is powered by React.js, TypeScript, Vite, Node.js, and GitHub Pages."
+      />
 
     </div>
   )

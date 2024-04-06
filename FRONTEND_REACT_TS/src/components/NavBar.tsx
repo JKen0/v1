@@ -54,7 +54,7 @@ const NavBar = () => {
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
-                        href="/"
+                        href="/mysite/"
                     >
                         JKen0
                     </Typography>

@@ -7,10 +7,11 @@ import Box from '@mui/material/Box';
 import { ProjectListType } from '../Types/ProjectsTypes';
 
 
-export default function ChoosePostTile({ post }: { post: ProjectListType }) {
+export default function ChoosePostTile({ tileKey, post }: { tileKey: string, post: ProjectListType }) {
 
     return (
         <Paper
+            key={tileKey}
             sx={{
                 position: 'relative',
                 backgroundColor: 'grey.800',

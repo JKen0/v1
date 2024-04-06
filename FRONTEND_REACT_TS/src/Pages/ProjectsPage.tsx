@@ -1,4 +1,5 @@
-import { useState, MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -13,6 +14,7 @@ import { ProjectPagesTypes, ProjectListType } from '../Types/ProjectsTypes';
 import ProjectKATNNBody from './ProjectBody/ProjectKATNNBody';
 import ProjectKATCEstBody from './ProjectBody/ProjectKATCEstBody';
 import ProjectChainlinkBody from './ProjectBody/ProjectChainlinkBody';
+
 
 const projectList: Array<ProjectListType> = [
     {
@@ -70,11 +72,12 @@ const ChooseProjectLayout = ({ setCurrentPage }: { setCurrentPage: (e: ProjectPa
             {projectList.map((project, index) => {
                 if (project.projectType === "degree-milestone") {
                     return (
-                        <div key={project.id} id="katnn-project" style={{ cursor: "pointer" }} onClick={() => setCurrentPage(project.id)}>
-                            <ChoosePostTile post={project} />
+                        <div key={`degree-project-${project.id}`} id="katnn-project" style={{ cursor: "pointer" }} onClick={() => setCurrentPage(project.id)}>
+                            <ChoosePostTile tileKey={`choose-tile-${project.id}`} post={project} />
                         </div>
                     );
-                }
+
+                };
             })}
 
             <Divider />
@@ -85,8 +88,8 @@ const ChooseProjectLayout = ({ setCurrentPage }: { setCurrentPage: (e: ProjectPa
             {projectList.map((project, index) => {
                 if (project.projectType === "course") {
                     return (
-                        <div key={project.id} id="katnn-project" style={{ cursor: "pointer" }} onClick={() => setCurrentPage(project.id)}>
-                            <ChoosePostTile post={project} />
+                        <div key={`minor-project-${project.id}`} id="katnn-project" style={{ cursor: "pointer" }} onClick={() => setCurrentPage(project.id)}>
+                            <ChoosePostTile tileKey={`choose-tile-${project.id}`} post={project} />
                         </div>
                     );
                 }
@@ -111,11 +114,17 @@ const getProjectBody = (id: ProjectPagesTypes) => {
 const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: ProjectPagesTypes, setCurrentPage: (e: ProjectPagesTypes) => void }) => {
     return (
         <Container style={{ paddingTop: "20px" }} maxWidth="lg">
+
             {projectList.map((project, index) => {
                 if (project.id === currentPage) {
-                    return <ChoosePostTile post={project} />
+                    return (
+                        <div key={`div-main-banner-${project.id}`}>
+                            <ChoosePostTile tileKey={`main-banner-${project.id}`} post={project} />
+                        </div>
+                    );
                 }
             })}
+
 
             <Grid container spacing={5} sx={{ mt: 3 }}>
                 <Grid
@@ -148,7 +157,7 @@ const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: 
             <Grid container spacing={4}>
                 {projectList.map((project, index) => {
                     if (project.id != currentPage) {
-                        return <FeaturedPost key={project.title} post={project} setCurrentPage={setCurrentPage} />
+                        return <FeaturedPost key={`additional-projects-${project.title}`} post={project} setCurrentPage={setCurrentPage} />
                     }
                 })}
             </Grid>
@@ -160,6 +169,32 @@ const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: 
 
 const ProjectsPage = () => {
     const [currentPage, setCurrentPage] = useState<ProjectPagesTypes>("all");
+    const { search } = useLocation();
+
+
+    // Function to check if the query parameter is valid
+    const isValidPageType = (pageType: string): pageType is ProjectPagesTypes => {
+        return ["all", "katnn-project", "katc-estimate-position-project", "chainlink-project"].includes(pageType);
+    };
+
+    // Set currentPage based on the query parameter
+    useEffect(() => {
+        const queryParams = new URLSearchParams(search);
+        const queryParamValue = queryParams.get('content');
+
+        if (queryParamValue && isValidPageType(queryParamValue)) {
+            setCurrentPage(queryParamValue);
+        }
+    }, []);
+
+
+    useEffect(() => {
+        const queryParams = new URLSearchParams(window.location.search);
+        queryParams.set('content', currentPage);
+        window.history.replaceState({}, '', `${window.location.pathname}?${queryParams}`);
+
+    }, [currentPage]);
+
 
     return (
         <>

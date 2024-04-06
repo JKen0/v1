@@ -52,7 +52,7 @@ const projectList: Array<ProjectListType> = [
 
 const sidebar = {
     title: 'About',
-    description: 'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
+    description: "I hold a Master's Degree in Computing and Software from McMaster University, where I used my skills in software and computational for problem-solving. With a passion for coding, I enjoy leveraging my skillset to create innovative solutions and explore new technologies in the ever-evolving field of software engineering.",
     pages: [
         { title: "Home", url: "/" },
         { title: "Grades", url: "grades" },

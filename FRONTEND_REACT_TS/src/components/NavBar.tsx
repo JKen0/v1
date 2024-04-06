@@ -11,8 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import CodeIcon from '@mui/icons-material/Code';
 import { Link } from "react-router-dom";
+
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -39,9 +40,9 @@ const NavBar = () => {
         <AppBar position="static" sx={{ zIndex: (theme) => theme.zIndex.drawer + 5 }}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <CodeIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
-                        variant="h6"
+                        variant="h5"
                         noWrap
                         component="a"
                         sx={{
@@ -115,7 +116,7 @@ const NavBar = () => {
                             </Link>
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    <CodeIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
                         variant="h5"
                         noWrap

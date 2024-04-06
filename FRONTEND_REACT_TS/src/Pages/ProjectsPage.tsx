@@ -117,8 +117,8 @@ const getProjectBody = (id: ProjectPagesTypes) => {
 
 const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: ProjectPagesTypes, setCurrentPage: (e: ProjectPagesTypes) => void }) => {
     return (
-        <Container style={{ paddingTop: "20px" }} maxWidth="lg">
-
+        <Container style={{ paddingTop: "10px" }} maxWidth="lg">
+            <Button style={{ paddingBottom: "5px" }} variant="outlined" onClick={() => setCurrentPage("all")}>Back</Button>
             {projectList.map((project, index) => {
                 if (project.id === currentPage) {
                     return (

@@ -5,7 +5,7 @@ import ProjectsDrawer from '../components/ProjectsDrawer'
 
 const ProjectsPage = () => {
     return (
-        <Container sx={{ display: 'flex' }}>
+        <Container maxWidth="xl">
             <ProjectsDrawer />
         </Container>
     )

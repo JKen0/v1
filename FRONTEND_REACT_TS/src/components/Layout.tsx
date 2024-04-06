@@ -1,9 +1,8 @@
-import { Outlet, Link, useLocation } from "react-router-dom";
+import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 import NavBar from "./NavBar";
 
 const getWebsiteTitle = (pathname: string) => {
-
   if (pathname === '/') {
     return 'Home';
   } else if (pathname === '/grades') {
@@ -19,6 +18,23 @@ const getWebsiteTitle = (pathname: string) => {
 
 const Layout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const searchParams = new URLSearchParams(location.search);
+
+  useEffect(() => {
+    const goto = searchParams.get('goto');
+
+    if (goto) {
+      const otherParams = new URLSearchParams(location.search);
+      otherParams.delete('goto'); // Remove goto parameter
+      const queryString = otherParams.toString();
+
+      navigate(`${goto}?${queryString}`);
+    }
+
+  }, []);
+
+
 
   useEffect(() => {
     document.title = `${getWebsiteTitle(location.pathname)}`;

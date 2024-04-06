@@ -1,8 +1,13 @@
 import React from 'react'
+import { Container, Box, Typography } from '@mui/material'
+
+import ProjectsDrawer from '../components/ProjectsDrawer'
 
 const ProjectsPage = () => {
     return (
-        <div>ProjectsPage</div>
+        <Container sx={{ display: 'flex' }}>
+            <ProjectsDrawer />
+        </Container>
     )
 }
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState, MouseEvent } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,13 +17,13 @@ import { Link } from "react-router-dom";
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+    const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    const handleOpenUserMenu = (event: MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
     };
 
@@ -36,7 +36,7 @@ const NavBar = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{ zIndex: (theme) => theme.zIndex.drawer + 5 }}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -145,7 +145,7 @@ const NavBar = () => {
                                 Grades
                             </Button>
                         </Link>
-                        <Link style={{ color: "white", textDecoration: "none" }} to="projectts">
+                        <Link style={{ color: "white", textDecoration: "none" }} to="projects">
                             <Button sx={{ my: 2, color: 'white', display: 'block' }}>
                                 Projects
                             </Button>

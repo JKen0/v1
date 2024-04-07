@@ -230,6 +230,7 @@ const ProjectsPage = () => {
     }, []);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         const queryParams = new URLSearchParams(window.location.search);
         queryParams.set('content', currentPage);
         window.history.replaceState({}, '', `${window.location.pathname}?${queryParams}`);

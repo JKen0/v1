@@ -43,7 +43,8 @@ const ProjectKATNNBody = () => {
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
                     <Typography variant="body2" color="text.secondary">
-                        Figure 1:
+                        Figure 1: This image represents the KAT Walk C treadmill onn the left, you can seee the KAT Walk surface, the straps which you wrap around your waist.
+                        On the right image, is the KAT Walk C shoes along with the sensors on them.
                     </Typography>
                 </div>
 
@@ -75,7 +76,8 @@ const ProjectKATNNBody = () => {
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
                     <Typography variant="body2" color="text.secondary">
-                        Figure 2:
+                        Figure 2: This image represents the user interface of the game, you can see all the menu options, the sensor data on the top left, and start
+                        sensor recording button in the bottom right. 
                     </Typography>
                 </div>
 
@@ -104,7 +106,8 @@ const ProjectKATNNBody = () => {
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
                     <Typography variant="body2" color="text.secondary">
-
+                        Figure 3: This image represents an example frame of sensor recordings. You can see that the red button contains the iteration number, and the webcam
+                        allows the research to see what the body was doing at different iterations and see what the rotation values were. 
                     </Typography>
                 </div>
 
@@ -121,7 +124,9 @@ const ProjectKATNNBody = () => {
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
                     <Typography variant="body2" color="text.secondary">
-
+                        Figure 4: This image represents the different innputs and layers of our KATNN algorithm, the first layer (top) represents the type of motion the user
+                        is performing. Each layer is represented horizantally as ovals (3 total) and each oval represents a seperate neural network. Rectangles represent the inputs to
+                        the corresponding neural network. 
                     </Typography>
                 </div>
 

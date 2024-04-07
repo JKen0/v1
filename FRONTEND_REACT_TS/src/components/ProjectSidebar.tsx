@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Divider } from '@mui/material';
 import { Link as Link2 } from "react-router-dom";
+import { useDarkTheme } from './Layout';
 
 interface ProjectSidearInterface {
     pages: ReadonlyArray<{
@@ -23,10 +24,11 @@ interface ProjectSidearInterface {
 
 export default function ProjectSidebar(props: ProjectSidearInterface) {
     const { pages, social, key_contributions, tech_stack } = props;
+    const { isDarkMode } = useDarkTheme(); 
 
     return (
         <Grid item xs={12} md={4}>
-            <Paper elevation={0} sx={{ p: 2, bgcolor: '#404040' }}>
+            <Paper elevation={0} sx={{ p: 2, bgcolor: isDarkMode ? '#404040' : "#E5E4E2" }}>
                 <Typography variant="h6" gutterBottom>
                     Tech Stack
                 </Typography>

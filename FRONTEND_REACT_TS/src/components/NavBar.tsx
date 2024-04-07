@@ -241,6 +241,7 @@ const NavBar = ({ isDarkMode, toggleTheme }: { isDarkMode: boolean, toggleTheme:
                                 label="Theme"
                                 value={isDarkMode}
                                 onClick={toggleTheme}
+                                labelPlacement="start"
                             />
 
                         </Menu>

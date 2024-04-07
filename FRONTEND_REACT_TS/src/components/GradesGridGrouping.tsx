@@ -16,6 +16,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { CheckCircle } from '@mui/icons-material';
 import Tooltip from '@mui/material/Tooltip';
 import InfoIcon from '@mui/icons-material/Info';
+import { useDarkTheme } from './Layout';
 
 
 interface Props {
@@ -127,6 +128,8 @@ interface MasterTableeRowsProps {
 }
 
 const MasterTableRows = ({ gridRows }: MasterTableeRowsProps) => {
+    const { isDarkMode } = useDarkTheme();
+
 
     return (
         <Fragment>
@@ -137,7 +140,7 @@ const MasterTableRows = ({ gridRows }: MasterTableeRowsProps) => {
                         <TableCell
                             colSpan={6}
                             style={{
-                                backgroundColor: '#333',
+                                backgroundColor: isDarkMode ? '#333' : "#E5E4E2",
                                 textAlign: 'center', // Center-align the text
                                 fontSize: 'large' // Set the font size to large
 

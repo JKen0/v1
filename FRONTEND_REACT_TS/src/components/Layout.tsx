@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, Link, useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import NavBar from "./NavBar";
 import Footer from "./Footer";
@@ -18,6 +18,8 @@ const getWebsiteTitle = (pathname: string) => {
     return 'Not Found';
   }
 };
+
+type ContextType = { isDarkMode: boolean };
 
 const Layout = () => {
   const location = useLocation();
@@ -65,7 +67,7 @@ const Layout = () => {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme} >
       <CssBaseline />
       <NavBar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      <Outlet />
+      <Outlet context={{ isDarkMode }} />
       <Footer
         title="Kenneth Matira"
         description="This Website is powered by React.js, TypeScript, Vite, Node.js, and GitHub Pages."
@@ -74,4 +76,8 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export function useDarkTheme() {
+  return useOutletContext<ContextType>();
+}
+
+export default Layout;

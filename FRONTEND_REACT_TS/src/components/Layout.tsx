@@ -1,7 +1,9 @@
 import { Outlet, Link, useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const getWebsiteTitle = (pathname: string) => {
   if (pathname === '/') {
@@ -21,6 +23,24 @@ const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
+  const [isDarkMode, setDarkMode] = useState<boolean>(true);
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
+  const lightTheme = createTheme({
+    palette: {
+      mode: 'light',
+    },
+  });
+
+  const toggleTheme = () => {
+    setDarkMode(!isDarkMode);
+  };
+
 
   useEffect(() => {
     const goto = searchParams.get('goto');
@@ -42,16 +62,15 @@ const Layout = () => {
   }, [location]);
 
   return (
-    <div>
-
-      <NavBar />
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme} >
+      <CssBaseline />
+      <NavBar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <Outlet />
       <Footer
         title="Kenneth Matira"
         description="This Website is powered by React.js, TypeScript, Vite, Node.js, and GitHub Pages."
       />
-
-    </div>
+    </ThemeProvider>
   )
 }
 

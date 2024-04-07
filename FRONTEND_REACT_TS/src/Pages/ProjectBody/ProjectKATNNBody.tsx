@@ -11,7 +11,7 @@ const ProjectKATNNBody = () => {
             </Typography>
             <Divider />
             <Typography variant="body1">
-                body for katnn
+
             </Typography>
         </>
     )

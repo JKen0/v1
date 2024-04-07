@@ -13,7 +13,6 @@ function Copyright() {
             </Link>{' '}
             {new Date().getFullYear()}
             {'.\n'}
-            <img src="https://cdn.betterttv.net/emote/626df7c83c6f14b68846b1f1/1x.webp" />
         </Typography>
     );
 }

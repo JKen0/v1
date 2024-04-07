@@ -3,8 +3,6 @@ import { useLocation } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import XIcon from '@mui/icons-material/X';
 import FeaturedPost from '../components/FeaturedPost';
 import ProjectSidebar from '../components/ProjectSidebar';
 import { Typography, Divider, Button } from '@mui/material';
@@ -27,6 +25,22 @@ const projectList: Array<ProjectListType> = [
         imageText: 'main image description',
         linkText: 'Continue reading…',
         contributors: "Kenneth Matira",
+        key_contributions: [
+            'Improved the overall VR experience by enabling smoother and more natural movement within virtual environments, enhancing user engagement and satisfaction.',
+            'Developed an innovative input mechanism for the KAT Walk C omni-directional treadmill, addressing limitations in the original algorithm.',
+            'Implementing features that enable users to customize sensitivity and rotation offset, enhancing overall immersion and providing a tailored experience for each user.',
+            'I established a flexible framework that facilitates ongoing research to refine motion accuracy, paving the way for continual improvement and innovation in the project\'s capabilities.',
+        ],
+        tech_stack: [
+            'Virtual Reality (VR)',
+            'C#',
+            'Python',
+            'Unity',
+            'Neural Networks',
+            'WebSocket Communication',
+            'Back-end Server',
+            'Motion Capture',
+        ],
     },
     {
         id: "katc-estimate-position-project",
@@ -37,22 +51,53 @@ const projectList: Array<ProjectListType> = [
         imageText: 'main image description',
         linkText: 'Continue reading…',
         contributors: "Kenneth Matira",
+        key_contributions: [
+            'Developed algorithms for text extraction and interpretation, improving the accuracy and efficiency of position estimation.',
+            'Enhanced the project\'s data export capabilities to support diverse file formats and data structures, maximizing flexibility for downstream analysis tasks.',
+            'Implemented Baycentric interpolation to accurately estimate the position of the foot on the KAT Walk C treadmill, enhancing the precision of motion tracking.',
+            'Developed real-time sensor data fetching code.'
+
+        ],
+        tech_stack: [
+            'Python',
+            'Excel',
+            'pytesseract',
+            'Motion Capture',
+
+        ],
     },
     {
         id: "chainlink-project",
         projectType: "course",
         title: 'Automated Insurance Policies On Chainlink',
-        description: "The estimation of foot position on the KAT Walk C relies on sparse sensor readings to gauge the foot's location relative to the treadmill surface, employing techniques like Baycentric Interpolation for estimation.",
+        description: "In the Chainlink project, I leveraged Chainlink to develop data- centric parametrized insurance policies.These policies were designed to dynamically adjust payouts based on real - time rain data, enhancing flexibility and accuracy in insurance coverage.",
         image: 'https://www.shutterstock.com/image-illustration/blockchain-technology-futuristic-hud-background-600nw-1044225994.jpg',
         imageText: 'main image description',
         linkText: 'Continue reading…',
         contributors: "Kenneth Matira",
+        key_contributions: [
+            'Automated payment processes through smart contracts, ensuring seamless and timely payouts to policyholders based on predefined conditions.',
+            'Empowered users with transparent and immutable transaction records, fostering trust and confidence in the insurance system.',
+            'Leveraged Chainlink\'s decentralized oracle networks to ensure reliability and trustlessness of data inputs.',
+            'Enhanced decentralization for increased security, transparency, and accessibility within the insurance ecosystem.',
+        ],
+        tech_stack: [
+            'C++',
+            'Solidity',
+            'Node.js',
+            'Chainlink Node',
+            'React.js',
+            'JavaScript',
+            'Weather API',
+            'REST API',
+            'Webhooks',
+            'Ethereum',
+            'MetaMask',
+        ],
     }
 ];
 
 const sidebar = {
-    title: 'About',
-    description: "I hold a Master's Degree in Computing and Software from McMaster University, where I used my skills in software and computational for problem-solving. With a passion for coding, I enjoy leveraging my skillset to create innovative solutions and explore new technologies in the ever-evolving field of software engineering.",
     pages: [
         { title: "Home", url: "/" },
         { title: "Grades", url: "grades" },
@@ -115,19 +160,12 @@ const getProjectBody = (id: ProjectPagesTypes) => {
 
 
 
-const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: ProjectPagesTypes, setCurrentPage: (e: ProjectPagesTypes) => void }) => {
+const DisplaySelectedProject = ({ currentPage, setCurrentPage, pageIndex }: { pageIndex: number, currentPage: ProjectPagesTypes, setCurrentPage: (e: ProjectPagesTypes) => void }) => {
     return (
         <Container style={{ paddingTop: "10px" }} maxWidth="lg">
             <Button style={{ paddingBottom: "5px" }} variant="outlined" onClick={() => setCurrentPage("all")}>Back</Button>
-            {projectList.map((project, index) => {
-                if (project.id === currentPage) {
-                    return (
-                        <div key={`div-main-banner-${project.id}`}>
-                            <ChoosePostTile tileKey={`main-banner-${project.id}`} post={project} />
-                        </div>
-                    );
-                }
-            })}
+
+            <ChoosePostTile tileKey={`main-banner-${projectList[pageIndex].id}`} post={projectList[pageIndex]} />
 
             <Grid container spacing={5} sx={{ mt: 3 }}>
                 <Grid
@@ -143,10 +181,10 @@ const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: 
                     {getProjectBody(currentPage)}
                 </Grid>
                 <ProjectSidebar
-                    title={sidebar.title}
-                    description={sidebar.description}
                     pages={sidebar.pages}
                     social={sidebar.social}
+                    key_contributions={projectList[pageIndex].key_contributions}
+                    tech_stack={projectList[pageIndex].tech_stack}
                 />
             </Grid>
 
@@ -172,6 +210,7 @@ const DisplaySelectedProject = ({ currentPage, setCurrentPage }: { currentPage: 
 
 const ProjectsPage = () => {
     const [currentPage, setCurrentPage] = useState<ProjectPagesTypes>("all");
+    const [pageIndex, setPageIndex] = useState<number>(-1);
     const { search } = useLocation();
 
 
@@ -190,19 +229,21 @@ const ProjectsPage = () => {
         }
     }, []);
 
-
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search);
         queryParams.set('content', currentPage);
         window.history.replaceState({}, '', `${window.location.pathname}?${queryParams}`);
+
+        const getIndex = ["katnn-project", "katc-estimate-position-project", "chainlink-project"].indexOf(currentPage);
+        setPageIndex(getIndex);
 
     }, [currentPage]);
 
 
     return (
         <>
-            {currentPage === "all" && <ChooseProjectLayout setCurrentPage={setCurrentPage} />}
-            {currentPage != "all" && <DisplaySelectedProject currentPage={currentPage} setCurrentPage={setCurrentPage} />}
+            {currentPage === "all" && pageIndex === -1 && <ChooseProjectLayout setCurrentPage={setCurrentPage} />}
+            {currentPage != "all" && pageIndex != -1 && <DisplaySelectedProject currentPage={currentPage} setCurrentPage={setCurrentPage} pageIndex={pageIndex} />}
         </>
     );
 }

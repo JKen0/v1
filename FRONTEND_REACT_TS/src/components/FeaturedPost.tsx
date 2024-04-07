@@ -24,7 +24,7 @@ export default function FeaturedPost({ post, setCurrentPage }: { post: ProjectLi
                             {post.contributors}
                         </Typography>
                         <Typography variant="subtitle1" paragraph>
-                            {post.description.length > CHARACTER_LIMIT ? post.description.slice(0, CHARACTER_LIMIT) + "..." : post.description}
+                            {post.description.length > CHARACTER_LIMIT ? post.description.slice(0, CHARACTER_LIMIT) + " ..." : post.description}
                         </Typography>
                     </CardContent>
                     <CardMedia

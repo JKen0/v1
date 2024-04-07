@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { Divider } from '@mui/material';
 import { Link as Link2 } from "react-router-dom";
 
 interface ProjectSidearInterface {
@@ -11,26 +12,44 @@ interface ProjectSidearInterface {
         url: string;
         title: string;
     }>;
-    description: string;
     social: ReadonlyArray<{
         icon: React.ElementType;
         name: string;
         url: string;
     }>;
-    title: string;
+    key_contributions: string[];
+    tech_stack: string[];
 }
 
 export default function ProjectSidebar(props: ProjectSidearInterface) {
-    const { pages, description, social, title } = props;
+    const { pages, social, key_contributions, tech_stack } = props;
 
     return (
         <Grid item xs={12} md={4}>
             <Paper elevation={0} sx={{ p: 2, bgcolor: '#404040' }}>
                 <Typography variant="h6" gutterBottom>
-                    {title}
+                    Tech Stack
                 </Typography>
-                <Typography>{description}</Typography>
+                <ul>
+                    {tech_stack.map((item, index) => (
+                        <li key={`tech-stack-${index}`}>{item}</li>
+                    ))}
+                </ul>
+
+                <Divider />
+
+                <Typography variant="h6" gutterBottom>
+                    Key Contributions
+                </Typography>
+                <ul>
+                    {key_contributions.map((item, index) => (
+                        <li key={`tech-stack-${index}`}>{item}</li>
+                    ))}
+                </ul>
+
+
             </Paper>
+
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
                 Pages
             </Typography>

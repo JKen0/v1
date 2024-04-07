@@ -10,4 +10,6 @@ export type ProjectListType = {
     imageText: string;
     linkText: string;
     contributors: string;
+    tech_stack: string[];
+    key_contributions: string[];
 }

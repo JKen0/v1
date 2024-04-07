@@ -1,15 +1,11 @@
 import React from 'react'
-import { Typography, Divider, Card, CardMedia, Box } from '@mui/material'
+import { Typography, Divider, Card, CardContent, Button, Grid } from '@mui/material'
 
 const ProjectKATCEstBody = () => {
 
 
     return (
         <>
-            <Typography variant="h4" gutterBottom>
-                KAT Walk C: Foot Estimation Position Code
-            </Typography>
-
             <Divider style={{ paddingTop: "5px", paddingBottom: "5px" }} />
 
             <Typography style={{ paddingTop: "5px", paddingBottom: "5px" }} variant="h5">
@@ -31,7 +27,8 @@ const ProjectKATCEstBody = () => {
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />
                 <Typography variant="body2" color="text.secondary">
-                    Your image caption or description
+                    Figure 1: This image shows the available data of the KAT Walk C. Notice that only rotation of each foot is returned.
+                    No data of positional awareness on the treadmill. 
                 </Typography>
             </div>
 
@@ -55,7 +52,8 @@ const ProjectKATCEstBody = () => {
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />
                 <Typography variant="body2" color="text.secondary">
-                    Your image caption or description
+                    Figure 2: This image portrays the incline that the foot experiences while moving away from the centre of the KAT Walk C. This incline allows us
+                    to make the assumption that each area of the surface will experience different sensor readings.
                 </Typography>
             </div>
 
@@ -74,7 +72,8 @@ const ProjectKATCEstBody = () => {
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />
                 <Typography variant="body2" color="text.secondary">
-                    Your image caption or description
+                    Figure 3: This image shows the 13-key points that are used in order to estimate the position, the right-most key point can be read as
+                    roll value 17 and pitch value 12. Each point is seperated evenly by a value of 7 and each point is associated to a position on the KAT surface. 
                 </Typography>
             </div>
 
@@ -102,12 +101,29 @@ const ProjectKATCEstBody = () => {
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />
                 <Typography variant="body2" color="text.secondary">
-                    Your image caption or description
+                    Figure 4: This image shows the visualization of where the algorithm predicts both the position of the left and right foot.
                 </Typography>
             </div>
 
+            <Divider style={{ paddingTop: "5px", paddingBottom: "5px" }} />
 
 
+            <Grid container spacing={3}>
+                <Grid item xs={3}>
+                    <Card variant="outlined">
+                        <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Repository" style={{ width: '100%', maxHeight: 100, objectFit: 'cover' }} />
+                        <CardContent>
+                            <Typography variant="h6" component="div">
+                                GitHub Repoistory
+                            </Typography>
+                            <Button variant="contained" href="https://github.com/JKen0/kat-walk-c-estimating-position" target="_blank" rel="noopener noreferrer">
+                                View Code
+                            </Button>
+                        </CardContent>
+                    </Card>
+
+                </Grid>
+            </Grid>
         </>
     )
 }

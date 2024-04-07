@@ -239,8 +239,8 @@ const NavBar = ({ isDarkMode, toggleTheme }: { isDarkMode: boolean, toggleTheme:
                             <FormControlLabel
                                 control={<MaterialUISwitch sx={{ m: 1 }} />}
                                 label="Theme"
-                                value={isDarkMode}
                                 onClick={toggleTheme}
+                                checked={isDarkMode}
                                 labelPlacement="start"
                             />
 

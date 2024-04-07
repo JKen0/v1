@@ -38,7 +38,7 @@ const ProjectKATNNBody = () => {
 
                 <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                     <img
-                        src="../../../public/katnn/treadmill_and_shoes.png" // Replace "./stock-image.jpg" with the actual path to your image file
+                        src="https://i.ibb.co/xHhXBbj/treadmill-and-shoes.png" // Replace "./stock-image.jpg" with the actual path to your image file
                         alt="Stock Image"
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
@@ -70,7 +70,7 @@ const ProjectKATNNBody = () => {
 
                 <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                     <img
-                        src="../../../public/katnn/old_vs_new_game.png"
+                        src="https://raw.githubusercontent.com/JKen0/vr-kat-project-unity/main/images/menu_screen.png"
                         alt="Stock Image"
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
@@ -99,7 +99,7 @@ const ProjectKATNNBody = () => {
 
                 <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                     <img
-                        src="../../../public/katnn/video_recording_example.png" // Replace "./stock-image.jpg" with the actual path to your image file
+                        src="https://i.ibb.co/3BcMvLN/video-recording-example.png" // Replace "./stock-image.jpg" with the actual path to your image file
                         alt="Stock Image"
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
@@ -116,7 +116,7 @@ const ProjectKATNNBody = () => {
 
                 <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                     <img
-                        src="../../../public/katnn/logic_diagram.png" // Replace "./stock-image.jpg" with the actual path to your image file
+                        src="https://raw.githubusercontent.com/JKen0/vr-kat-project-python/main/images/logic_diagram.png" // Replace "./stock-image.jpg" with the actual path to your image file
                         alt="Stock Image"
                         style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                     />
@@ -166,22 +166,13 @@ const ProjectKATNNBody = () => {
 
                 </Typography>
 
-                <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
-                    <img
-                        src="../../../public/katnn/treadmill_and_shoes.png"
-                        alt="Stock Image"
-                        style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
-                    />
-                    <Typography variant="body2" color="text.secondary">
-                        Figure 4: This image shows the visualization of where the algorithm predicts both the position of the left and right foot.
-                    </Typography>
-                </div>
+
 
                 <Divider style={{ paddingTop: "5px", paddingBottom: "5px" }} />
                 <Grid container>
                     <Grid item xs={4}>
                         <Card variant="outlined">
-                            <img src="../../../public/Github.png" alt="Repository" style={{ width: '100%', maxHeight: 100, objectFit: 'cover' }} />
+                            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Repository" style={{ width: '100%', maxHeight: 100, objectFit: 'cover' }} />
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     KATNN Repo (Python)
@@ -194,7 +185,7 @@ const ProjectKATNNBody = () => {
                     </Grid>
                     <Grid item xs={4}>
                         <Card variant="outlined">
-                            <img src="../../../public/Github.png" alt="Repository" style={{ width: '100%', maxHeight: 100, objectFit: 'cover' }} />
+                            <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Repository" style={{ width: '100%', maxHeight: 100, objectFit: 'cover' }} />
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     Unity Game Repo
@@ -207,7 +198,7 @@ const ProjectKATNNBody = () => {
                     </Grid>
                     <Grid item xs={4}>
                         <Card variant="outlined">
-                            <img src="../../../public/Whitepaper.jpg" alt="Paper" style={{ width: '100%', maxHeight: 100, objectFit: 'cover' }} />
+                            <img src="https://t4.ftcdn.net/jpg/03/73/85/33/360_F_373853375_guE8wO6NTApwTNTC0aMxdPOSKmg9sK8O.jpg" alt="Paper" style={{ width: '100%', maxHeight: 100, objectFit: 'cover' }} />
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     Research Paper

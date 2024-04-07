@@ -22,7 +22,7 @@ const ProjectKATCEstBody = () => {
 
             <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                 <img
-                    src="../../../public/estimate-position/kat_gateway_example.png" // Replace "./stock-image.jpg" with the actual path to your image file
+                    src="https://i.ibb.co/JFx7ZSX/kat-gateway-example.png" // Replace "./stock-image.jpg" with the actual path to your image file
                     alt="Stock Image"
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />
@@ -47,7 +47,7 @@ const ProjectKATCEstBody = () => {
 
             <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                 <img
-                    src="../../../public/estimate-position/treadmill_incline.jpg" // Replace "./stock-image.jpg" with the actual path to your image file
+                    src="https://raw.githubusercontent.com/JKen0/kat-walk-c-estimating-position/main/images/est-position-diagram-example.png" // Replace "./stock-image.jpg" with the actual path to your image file
                     alt="Stock Image"
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />
@@ -67,7 +67,7 @@ const ProjectKATCEstBody = () => {
 
             <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                 <img
-                    src="../../../public/estimate-position/13-key-point-diagram.png" // Replace "./stock-image.jpg" with the actual path to your image file
+                    src="https://i.ibb.co/tKwn77X/13-key-point-diagram.png" // Replace "./stock-image.jpg" with the actual path to your image file
                     alt="Stock Image"
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />
@@ -96,7 +96,7 @@ const ProjectKATCEstBody = () => {
 
             <div style={{ textAlign: "center", paddingTop: "10px", paddingBottom: "10px" }}>
                 <img
-                    src="../../../public/estimate-position/est-position-diagram-example.png" // Replace "./stock-image.jpg" with the actual path to your image file
+                    src="https://raw.githubusercontent.com/JKen0/kat-walk-c-estimating-position/main/images/treadmill_incline.jpg" // Replace "./stock-image.jpg" with the actual path to your image file
                     alt="Stock Image"
                     style={{ maxHeight: 400, maxWidth: '100%', display: 'block', margin: 'auto' }}
                 />

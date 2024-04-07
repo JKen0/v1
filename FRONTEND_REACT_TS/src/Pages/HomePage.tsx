@@ -3,6 +3,7 @@ import ListGroup from '../components/ListGroup';
 import Alert from '../components/Alert';
 import Button from '../components/Button';
 import 'bootstrap/dist/css/bootstrap.css';
+import { Typography } from '@mui/material';
 
 const HomePage = () => {
     const items = [
@@ -26,6 +27,7 @@ const HomePage = () => {
           {showAlert && <Alert onClickCloseButton={() => {setShowAlert(false)}}>Hello <span>World</span> DinkDonk!</Alert>}
 
           <Button buttonText = "Primary" onClick={() => {setShowAlert(true)}} />
+
 
 
         </div>

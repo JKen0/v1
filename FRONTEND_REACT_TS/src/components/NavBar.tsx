@@ -166,7 +166,7 @@ const NavBar = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="../../public/waaaa.webp" />
+                                <Avatar alt="Remy Sharp" src="https://cdn.7tv.app/emote/61f223a81704494956111846/2x.webp" />
                             </IconButton>
                         </Tooltip>
                         <Menu

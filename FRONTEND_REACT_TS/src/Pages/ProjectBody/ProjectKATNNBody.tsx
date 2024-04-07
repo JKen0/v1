@@ -12,7 +12,7 @@ const ProjectKATNNBody = () => {
                         width="600"
                         height="350"
                         src="https://www.youtube.com/embed/SbUXoQ0-G9Q"
-                        title="Drivers' Reaction After the Race | 2024 Japanese Grand Prix"
+                        title="KATNN Results Video"
                         frameBorder="0"
                         allowFullScreen={true}
                     >

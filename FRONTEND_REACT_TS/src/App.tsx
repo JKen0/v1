@@ -21,7 +21,7 @@ const App = () => {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Router basename='/mysite'>
+      <Router basename='/v1'>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

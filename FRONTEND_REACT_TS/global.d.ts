@@ -242,6 +242,14 @@ interface Experience_MOD {
   tags: string[];
 }
 
+interface Education_MOD {
+  institution: string;
+  degree: string;
+  from: string;
+  to: string;
+  description: (string | undefined)[];
+} 
+
 interface GoogleAnalytics {
   /**
    * GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
@@ -435,6 +443,7 @@ interface Config {
    */
   enablePWA?: boolean;
   experience_mod?: Experience_MOD[];
+  educations_mod?: Education_MOD[];
 }
 
 declare const CONFIG: Config;

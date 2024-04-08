@@ -110,6 +110,13 @@ declare const CONFIG: {
         link: string;
         image: string;
         tags: string[];
-    }[];
+    }[]; 
+    educations_mod: {
+        institution: string;
+        degree: string;
+        from: string;
+        to: string;
+        description: (string | undefined)[];
+    }[]
 };
 export default CONFIG;

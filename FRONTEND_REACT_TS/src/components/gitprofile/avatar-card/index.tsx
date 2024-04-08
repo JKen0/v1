@@ -73,7 +73,7 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
           <div className="mt-3 text-base-content text-opacity-60 font-mono">
             {loading || !profile
               ? skeleton({ widthCls: 'w-48', heightCls: 'h-5' })
-              : "he/him"}
+              : 'he/him'}
           </div>
           <div className="mt-3 text-base-content text-opacity-60 font-mono">
             {loading || !profile

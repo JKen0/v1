@@ -26,8 +26,8 @@ import GithubProjectCard from '../components/gitprofile/github-project-card';
 import ExternalProjectCard from '../components/gitprofile/external-project-card';
 import BlogCard from '../components/gitprofile/blog-card';
 import PublicationCard from '../components/gitprofile/publication-card';
-
 import { useDarkTheme } from '../components/Layout';
+import CONFIG from '../../gitprofile.config';
 
 const getHomeTheme = (isDark: boolean) => {
   if (isDark) return DEFAULT_THEMES[23];
@@ -200,15 +200,7 @@ const HomePage = ({ config }: { config: Config }) => {
             <div className={`p-4 lg:p-10 min-h-full ${BG_COLOR}`}>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
                 <div className="col-span-1">
-                  <div className="grid grid-cols-1 gap-6">
-                    {/*!sanitizedConfig.themeConfig.disableSwitch && (
-                      <ThemeChanger
-                        theme={theme}
-                        setTheme={setTheme}
-                        loading={loading}
-                        themeConfig={sanitizedConfig.themeConfig}
-                      />
-                    )*/}
+                    <div className="grid grid-cols-1 gap-6">
                     <AvatarCard
                       profile={profile}
                       loading={loading}
@@ -221,10 +213,10 @@ const HomePage = ({ config }: { config: Config }) => {
                       github={sanitizedConfig.github}
                       social={sanitizedConfig.social}
                     />
-                    {sanitizedConfig.educations.length !== 0 && (
+                      {CONFIG.educations_mod.length !== 0 && (
                       <EducationCard
                         loading={loading}
-                        educations={sanitizedConfig.educations}
+                          educations={CONFIG.educations_mod}
                       />
                     )}
                     {sanitizedConfig.skills.length !== 0 && (
@@ -232,20 +224,7 @@ const HomePage = ({ config }: { config: Config }) => {
                         loading={loading}
                         skills={sanitizedConfig.skills}
                       />
-                    )}
-
-                    {/*sanitizedConfig.experiences.length !== 0 && (
-                      <ExperienceCard
-                        loading={loading}
-                        experiences={sanitizedConfig.experiences}
-                      />
-                    )*/}
-                    {/*sanitizedConfig.certifications.length !== 0 && (
-                      <CertificationCard
-                        loading={loading}
-                        certifications={sanitizedConfig.certifications}
-                      />
-                      )*/}
+                      )}
                   </div>
                 </div>
                 <div className="lg:col-span-2 col-span-1">

@@ -67,23 +67,27 @@ const CONFIG = {
     email: 'matirk1@mcmaster.ca',
   },
   resume: {
-    fileUrl: '', // Empty fileUrl will hide the `Download Resume` button.
+    fileUrl: 'https://salmon-jess-35.tiiny.site', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
-    'PHP',
-    'Laravel',
+    'TypeScript',
     'JavaScript',
+    'Python',
+    'C++',
+    'C#',
+    'SQL',
     'React.js',
     'Node.js',
-    'Nest.js',
     'MySQL',
-    'PostgreSQL',
+    'MSSQL Server',
+    'Latex',
+    'TensorFlow',
     'Git',
-    'Docker',
-    'PHPUnit',
+    'Github',
+    'BitBucket',
     'CSS',
-    'Antd',
-    'Tailwind',
+    'Tableau',
+    'Excel',
   ],
   experiences: [
     {
@@ -107,14 +111,14 @@ const CONFIG = {
       institution: 'McMaster University',
       degree: 'Masters of Engineering in Computing & Software',
       from: 'Sept 2022',
-      to: 'Apr 2024',
+      to: 'Apr 2024'
     },
     {
       institution: 'McMaster University',
       degree:
         'Bachelor of Science in Honours Actuarial & Financial Mathematics',
       from: 'Sept 2017',
-      to: 'Apr 2022',
+      to: 'Apr 2022'
     },
   ],
   publications: [
@@ -225,7 +229,15 @@ const CONFIG = {
       ],
       link: 'https://macsphere.mcmaster.ca/handle/11375/29390',
       image: 'https://privatech.ca/wp-content/uploads/2015/04/mcmaster.jpg',
-      tags: ['Python', 'Node.js', 'React.js'],
+      tags: [
+        'Python',
+        'TensorFlow',
+        'C#',
+        'Unity',
+        'VR',
+        'motion-capture',
+        'neural-networks',
+      ],
     },
     {
       title: 'Full Stack Application Developer',
@@ -240,7 +252,18 @@ const CONFIG = {
       link: 'https://www.kenna.ca/',
       image:
         'https://media.licdn.com/dms/image/C4E0BAQEjGLoIwliplg/company-logo_200_200/0/1630601311630/kennacommunications_logo?e=2147483647&v=beta&t=Ojlv8QTUp4qfwgFQbohDw0RlefdtQca-i57vj70Gmdo',
-      tags: ['Python', 'Node.js', 'React.js'],
+      tags: [
+        'JavaScript',
+        'TypeScript',
+        'React.js',
+        'Node.js',
+        'jQuery',
+        'SQL',
+        'MS-SQL-Server',
+        'Git',
+        'BitBucket',
+        'Jenkins',
+      ],
     },
     {
       title: 'Business Intelligence / SQL Developer',
@@ -254,7 +277,7 @@ const CONFIG = {
       link: 'https://www.kenna.ca/',
       image:
         'https://media.licdn.com/dms/image/C4E0BAQEjGLoIwliplg/company-logo_200_200/0/1630601311630/kennacommunications_logo?e=2147483647&v=beta&t=Ojlv8QTUp4qfwgFQbohDw0RlefdtQca-i57vj70Gmdo',
-      tags: ['Python', 'Node.js', 'React.js'],
+      tags: ['SQL', 'MS-SQL-Server', 'Tableau', 'Excel'],
     },
 
     {
@@ -267,9 +290,33 @@ const CONFIG = {
       ],
       link: 'https://www.eng.mcmaster.ca/cas/degree-options/computer-science/',
       image: 'https://privatech.ca/wp-content/uploads/2015/04/mcmaster.jpg',
-      tags: ['Python', 'Node.js', 'React.js'],
+      tags: ['Python', 'Expertise', 'Communication', 'Adaptable'],
     },
   ],
+  educations_mod: [
+    {
+      institution: 'McMaster University',
+      degree: 'Masters of Engineering in Computing & Software',
+      from: 'Sept 2022',
+      to: 'Apr 2024',
+      description: [
+        'GPA: 3.9 (A+)',
+        , 'Demonstrated exceptional problem-solving skills through complex projects related in machine learning, motion capture, and distributed databases for innovative and analytical solutions.'
+      ],
+    },
+    {
+      institution: 'McMaster University',
+      degree:
+        'Bachelor of Science in Honours Actuarial & Financial Mathematics',
+      from: 'Sept 2017',
+      to: 'Apr 2022',
+      description: [
+        'GPA: 3.8 (A)',
+        'Mathematics enthusiast with a interest in number theory, cryptography, and mathematical modeling, adept at analytical thinking and problem-solving.',
+        'Developed a robust understanding of a wide range of financial derivatives such as options, futures, swaps, and credit derivatives.'
+      ],
+    }
+  ]
 };
 
 export default CONFIG;

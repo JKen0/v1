@@ -169,7 +169,9 @@ const NavBar = ({
                 style={{ color: 'white', textDecoration: 'none' }}
                 to="games"
               >
-                <MenuItem onClick={handleCloseNavMenu} disabled={true}>Games</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu} disabled={true}>
+                  Games
+                </MenuItem>
               </Link>
             </Menu>
           </Box>
@@ -223,7 +225,10 @@ const NavBar = ({
               </Button>
             </Link>
             <Link style={{ color: 'white', textDecoration: 'none' }} to="games">
-              <Button sx={{ my: 2, color: 'white', display: 'block' }} disabled={true}>
+              <Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                disabled={true}
+              >
                 Games
               </Button>
             </Link>

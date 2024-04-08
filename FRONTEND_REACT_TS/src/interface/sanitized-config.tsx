@@ -88,6 +88,14 @@ export interface SanitizedEducation {
   to: string;
 }
 
+export interface SanitizedEducation_MOD {
+  institution?: string;
+  degree?: string;
+  from: string;
+  to: string;
+  description: (string | undefined)[];
+}
+
 export interface SanitizedPublication {
   title: string;
   conferenceName?: string;

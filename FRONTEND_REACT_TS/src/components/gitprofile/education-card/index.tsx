@@ -1,15 +1,20 @@
 import React from 'react';
-import { SanitizedEducation } from '../../../interface/sanitized-config';
+import { SanitizedEducation_MOD } from '../../../interface/sanitized-config';
 import { skeleton } from '../../../utils';
+import { Divider } from '@mui/material';
 
 const ListItem = ({
   time,
   degree,
   institution,
+  description,
+  isLastIndex,
 }: {
   time: React.ReactNode;
   degree?: React.ReactNode;
   institution?: React.ReactNode;
+    description?: string[];
+    isLastIndex?: boolean;
 }) => (
   <li className="mb-5 ml-4">
     <div
@@ -19,6 +24,13 @@ const ListItem = ({
     <div className="my-0.5 text-xs">{time}</div>
     <h3 className="font-semibold">{degree}</h3>
     <div className="mb-4 font-normal">{institution}</div>
+    <ul style={{ marginTop: "-10px", paddingLeft: '12px', listStyleType: 'disc' }}>
+      {description?.map((desc, index) => (
+        <li style={{ paddingBottom: "4px" }} className="text-center md:text-left w-full" key={`educ-desc-${index}`}>{desc}</li>
+
+      ))}
+    </ul>
+    {!isLastIndex && <Divider style={{ paddingTop: "10px" }} />}
   </li>
 );
 
@@ -27,7 +39,7 @@ const EducationCard = ({
   educations,
 }: {
   loading: boolean;
-  educations: SanitizedEducation[];
+    educations: SanitizedEducation_MOD[];
 }) => {
   const renderSkeleton = () => {
     const array = [];
@@ -76,6 +88,8 @@ const EducationCard = ({
                     time={`${item.from} - ${item.to}`}
                     degree={item.degree}
                     institution={item.institution}
+                    description={item.description}
+                    isLastIndex={index === educations.length - 1 ? true : false}
                   />
                 ))}
               </>

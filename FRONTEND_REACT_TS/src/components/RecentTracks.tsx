@@ -47,7 +47,10 @@ const RecentTracks = ({ data }: RecentTracksProps) => {
   const currentTime = new Date();
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]); // Define the type of the ref object
 
-  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+  const handleChangePage = (
+    event: React.MouseEvent<HTMLButtonElement> | null,
+    newPage: number,
+  ) => {
     if (event) {
       setNowPlayingIndex(-1);
       setPage(newPage);

@@ -288,7 +288,7 @@ const CONFIG = {
       description: [
         'Facilitated interactive tutorial sessions and provided one-on-one support to undergraduate students in topics such as Calculus, Linear Algebra, Analysis, Probability, Discrete Math, and Logic.',
       ],
-      link: 'https://www.eng.mcmaster.ca/cas/degree-options/computer-science/',
+      link: 'https://www.eng.mcmaster.ca/cas/',
       image: 'https://privatech.ca/wp-content/uploads/2015/04/mcmaster.jpg',
       tags: ['Python', 'Expertise', 'Communication', 'Adaptable'],
     },

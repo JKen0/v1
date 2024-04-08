@@ -56,8 +56,8 @@ var CONFIG = {
     },
   },
   seo: {
-    title: 'Home',
-    description: 'ayy lmao',
+    title: '',
+    description: '',
     imageURL: '',
   },
   social: {
@@ -66,7 +66,7 @@ var CONFIG = {
     email: 'matirk1@mcmaster.ca',
   },
   resume: {
-    fileUrl: 'https://salmon-jess-35.tiiny.site', // Empty fileUrl will hide the `Download Resume` button.
+    fileUrl: 'https://jken0.tiiny.site',
   },
   skills: [
     'TypeScript',

@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
-import { GridDataInterface } from "../Types/GridDataTypes";
+import { GridDataInterface } from '../Types/GridDataTypes';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -32,19 +32,22 @@ interface MasterRowProps {
 }
 
 interface EnhancedTableProps {
-  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof GridDataInterface) => void;
+  onRequestSort: (
+    event: React.MouseEvent<unknown>,
+    property: keyof GridDataInterface,
+  ) => void;
   order: Order;
   orderBy: string;
   rowCount: number;
   setModalOpen: () => void;
 }
 
-
 // THIS DEAL WITH TABLE HEAD AND SORTING
 const EnhancedTableHead = (props: EnhancedTableProps) => {
   const { order, orderBy, rowCount, onRequestSort, setModalOpen } = props;
   const createSortHandler =
-    (property: keyof GridDataInterface) => (event: React.MouseEvent<unknown>) => {
+    (property: keyof GridDataInterface) =>
+    (event: React.MouseEvent<unknown>) => {
       onRequestSort(event, property);
     };
 
@@ -57,7 +60,7 @@ const EnhancedTableHead = (props: EnhancedTableProps) => {
             key={headCell.id}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
-            style={{ fontSize: "large" }}
+            style={{ fontSize: 'large' }}
           >
             {(() => {
               if (headCell.sortable) {
@@ -70,26 +73,35 @@ const EnhancedTableHead = (props: EnhancedTableProps) => {
                     {headCell.label}
                     {orderBy === headCell.id && (
                       <Box component="span" sx={visuallyHidden}>
-                        {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
+                        {order === 'desc'
+                          ? 'sorted descending'
+                          : 'sorted ascending'}
                       </Box>
                     )}
                   </TableSortLabel>
                 );
               } else if (headCell.id === 'Grade') {
                 return (
-                  <div>{headCell.label}<IconButton onClick={setModalOpen}><InfoIcon fontSize="small" style={{ marginTop: '-3px' }} /></IconButton></div>
+                  <div>
+                    {headCell.label}
+                    <IconButton onClick={setModalOpen}>
+                      <InfoIcon
+                        fontSize="small"
+                        style={{ marginTop: '-3px' }}
+                      />
+                    </IconButton>
+                  </div>
                 );
               } else {
                 return <div>{headCell.label}</div>;
               }
             })()}
-
           </TableCell>
         ))}
       </TableRow>
     </TableHead>
   );
-}
+};
 
 // THIS DEALS WITH GRID ROWS AND ABILIT TO EXPAND EACH ROW
 const MasterRow = ({ row }: MasterRowProps) => {
@@ -97,7 +109,10 @@ const MasterRow = ({ row }: MasterRowProps) => {
 
   return (
     <Fragment>
-      <TableRow key={`${row.CourseCode}${row.Term}`} sx={{ '& > *': { borderBottom: 'unset' } }}>
+      <TableRow
+        key={`${row.CourseCode}${row.Term}`}
+        sx={{ '& > *': { borderBottom: 'unset' } }}
+      >
         <TableCell>
           <IconButton
             aria-label="expand row"
@@ -107,7 +122,9 @@ const MasterRow = ({ row }: MasterRowProps) => {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">{row.CourseCode} </TableCell>
+        <TableCell component="th" scope="row">
+          {row.CourseCode}{' '}
+        </TableCell>
         <TableCell>{row.CourseName}</TableCell>
         <TableCell>{row.Term}</TableCell>
         <TableCell>{row.Grade}</TableCell>
@@ -134,9 +151,7 @@ const MasterRow = ({ row }: MasterRowProps) => {
       </TableRow>
     </Fragment>
   );
-}
-
-
+};
 
 // THIS IS THE OUTER MAIN GRID
 const GradesGrid = ({ gridData, setModalOpen }: Props) => {
@@ -145,9 +160,8 @@ const GradesGrid = ({ gridData, setModalOpen }: Props) => {
   const [orderBy, setOrderBy] = useState<keyof GridDataInterface>('CourseCode');
 
   useEffect(() => {
-    setGridRows(gridData)
+    setGridRows(gridData);
   }, [gridData]);
-
 
   // SORTING LOGIC
   useEffect(() => {
@@ -167,8 +181,8 @@ const GradesGrid = ({ gridData, setModalOpen }: Props) => {
         const indexB = seasonsOrder.indexOf(seasonB);
 
         // convert back to string
-        const newA = `${yearA}-${indexA}`
-        const newB = `${yearB}-${indexB}`
+        const newA = `${yearA}-${indexA}`;
+        const newB = `${yearB}-${indexB}`;
 
         if (newA < newB) {
           return isAsc ? -1 : 1;
@@ -177,7 +191,6 @@ const GradesGrid = ({ gridData, setModalOpen }: Props) => {
           return isAsc ? 1 : -1;
         }
         return 0;
-
       } else {
         if (a[orderBy] < b[orderBy]) {
           return isAsc ? -1 : 1;
@@ -193,7 +206,10 @@ const GradesGrid = ({ gridData, setModalOpen }: Props) => {
     setGridRows(sortedData);
   }, [order, orderBy]);
 
-  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof GridDataInterface,) => {
+  const handleRequestSort = (
+    event: React.MouseEvent<unknown>,
+    property: keyof GridDataInterface,
+  ) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
@@ -202,7 +218,7 @@ const GradesGrid = ({ gridData, setModalOpen }: Props) => {
   return (
     <>
       <TableContainer component={Paper}>
-        <Table aria-label="collapsible table" stickyHeader size={"small"}>
+        <Table aria-label="collapsible table" stickyHeader size={'small'}>
           <EnhancedTableHead
             order={order}
             orderBy={orderBy}
@@ -211,16 +227,14 @@ const GradesGrid = ({ gridData, setModalOpen }: Props) => {
             setModalOpen={setModalOpen}
           />
           <TableBody>
-            {gridRows.map((row) =>
+            {gridRows.map((row) => (
               <MasterRow key={`${row.CourseCode}${row.Term}`} row={row} />
-            )}
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
     </>
   );
-}
+};
 
-
-
-export default GradesGrid
+export default GradesGrid;

@@ -10,21 +10,21 @@ export interface GridDataInterface {
   Description: string;
   Department: string;
   Career: string;
-};
+}
 
 export type Order = 'asc' | 'desc';
 
-export type GridLayoutTypes = "normal" | "term-grouping";
+export type GridLayoutTypes = 'normal' | 'term-grouping';
 
 export interface DepartmentCount {
   department: string;
   count: number;
-};
+}
 
 export interface CareerCount {
   career: string;
   count: number;
-};
+}
 
 export type FilterOptionInterface = {
   careerOptions: CareerCount[];
@@ -49,36 +49,36 @@ export const headCells: readonly HeadCell[] = [
     id: 'CourseCode',
     disablePadding: true,
     label: 'Course Code',
-    sortable: true
+    sortable: true,
   },
   {
     id: 'CourseName',
     disablePadding: false,
     label: 'Course Name',
-    sortable: true
+    sortable: true,
   },
   {
     id: 'Term',
     disablePadding: false,
     label: 'Term',
-    sortable: true
+    sortable: true,
   },
   {
     id: 'Grade',
     disablePadding: false,
     label: 'Grade',
-    sortable: false
+    sortable: false,
   },
   {
     id: 'Units',
     disablePadding: false,
     label: 'Units',
-    sortable: false
+    sortable: false,
   },
   {
-    id: "Status",
+    id: 'Status',
     disablePadding: false,
     label: 'Status',
-    sortable: false
-  }
+    sortable: false,
+  },
 ];

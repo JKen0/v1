@@ -9,31 +9,37 @@ import { ProjectListType, ProjectPagesTypes } from '../Types/ProjectsTypes';
 
 const CHARACTER_LIMIT = 225;
 
-
-export default function FeaturedPost({ post, setCurrentPage }: { post: ProjectListType, setCurrentPage: (e: ProjectPagesTypes) => void }) {
-
-    return (
-        <Grid item xs={12} md={6}>
-            <CardActionArea component="a" onClick={() => setCurrentPage(post.id)}>
-                <Card sx={{ display: 'flex' }}>
-                    <CardContent sx={{ flex: 1 }}>
-                        <Typography component="h2" variant="h5">
-                            {post.title}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary">
-                            {post.contributors}
-                        </Typography>
-                        <Typography variant="subtitle1" paragraph>
-                            {post.description.length > CHARACTER_LIMIT ? post.description.slice(0, CHARACTER_LIMIT) + " ..." : post.description}
-                        </Typography>
-                    </CardContent>
-                    <CardMedia
-                        component="img"
-                        sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-                        image={post.image}
-                    />
-                </Card>
-            </CardActionArea>
-        </Grid>
-    );
+export default function FeaturedPost({
+  post,
+  setCurrentPage,
+}: {
+  post: ProjectListType;
+  setCurrentPage: (e: ProjectPagesTypes) => void;
+}) {
+  return (
+    <Grid item xs={12} md={6}>
+      <CardActionArea component="a" onClick={() => setCurrentPage(post.id)}>
+        <Card sx={{ display: 'flex' }}>
+          <CardContent sx={{ flex: 1 }}>
+            <Typography component="h2" variant="h5">
+              {post.title}
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary">
+              {post.contributors}
+            </Typography>
+            <Typography variant="subtitle1" paragraph>
+              {post.description.length > CHARACTER_LIMIT
+                ? post.description.slice(0, CHARACTER_LIMIT) + ' ...'
+                : post.description}
+            </Typography>
+          </CardContent>
+          <CardMedia
+            component="img"
+            sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+            image={post.image}
+          />
+        </Card>
+      </CardActionArea>
+    </Grid>
+  );
 }

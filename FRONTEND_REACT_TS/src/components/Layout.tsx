@@ -1,7 +1,13 @@
-import { Outlet, Link, useLocation, useNavigate, useOutletContext } from "react-router-dom";
+import {
+  Outlet,
+  Link,
+  useLocation,
+  useNavigate,
+  useOutletContext,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import NavBar from './NavBar';
+import Footer from './Footer';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -43,7 +49,6 @@ const Layout = () => {
     setDarkMode(!isDarkMode);
   };
 
-
   useEffect(() => {
     const goto = searchParams.get('goto');
 
@@ -54,17 +59,14 @@ const Layout = () => {
 
       navigate(`${goto}?${queryString}`);
     }
-
   }, []);
-
-
 
   useEffect(() => {
     document.title = `${getWebsiteTitle(location.pathname)}`;
   }, [location]);
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme} >
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <CssBaseline />
       <NavBar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <Outlet context={{ isDarkMode }} />
@@ -73,8 +75,8 @@ const Layout = () => {
         description="This Website is powered by React.js, TypeScript, Vite, Node.js, and GitHub Pages."
       />
     </ThemeProvider>
-  )
-}
+  );
+};
 
 export function useDarkTheme() {
   return useOutletContext<ContextType>();

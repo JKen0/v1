@@ -16,4 +16,9 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
+  },
 };

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import GradesGrid from '../components/GradesGrid';
 import GradesGridGrouping from '../components/GradesGridGrouping';
-import axios from 'axios';
 import gradesdata from '../TestData/gradesdata.json';
 import { GridDataInterface } from '../Types/GridDataTypes';
 import GridFilterBar from '../components/GridFilterBar';

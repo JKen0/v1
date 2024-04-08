@@ -1,4 +1,3 @@
-import React from 'react';
 import { TopArtistsTypes } from '../Types/MusicTypes';
 import { Typography } from '@mui/material';
 import ImageList from '@mui/material/ImageList';

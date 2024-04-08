@@ -47,7 +47,7 @@ const RecentTracks = ({ data }: RecentTracksProps) => {
   const currentTime = new Date();
   const audioRefs = useRef<(HTMLAudioElement | null)[]>([]); // Define the type of the ref object
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (newPage: number) => {
     setNowPlayingIndex(-1);
     setPage(newPage);
   };
@@ -171,7 +171,7 @@ const RecentTracks = ({ data }: RecentTracksProps) => {
                 count={data.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
-                onPageChange={handleChangePage}
+                onPageChange={(page) => handleChangePage(page)}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 slotProps={{
                   select: {

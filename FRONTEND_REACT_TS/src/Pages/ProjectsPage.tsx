@@ -123,7 +123,7 @@ const ChooseProjectLayout = ({
       <Typography variant="h4" gutterBottom>
         Degree Milestone Projects
       </Typography>
-      {projectList.map((project, index) => {
+      {projectList.map((project) => {
         if (project.projectType === 'degree-milestone') {
           return (
             <div
@@ -146,7 +146,7 @@ const ChooseProjectLayout = ({
       <Typography style={{ paddingTop: '20px' }} variant="h4" gutterBottom>
         Course Projects
       </Typography>
-      {projectList.map((project, index) => {
+      {projectList.map((project) => {
         if (project.projectType === 'course') {
           return (
             <div
@@ -233,7 +233,7 @@ const DisplaySelectedProject = ({
       </Typography>
 
       <Grid container spacing={4}>
-        {projectList.map((project, index) => {
+        {projectList.map((project) => {
           if (project.id != currentPage) {
             return (
               <FeaturedPost

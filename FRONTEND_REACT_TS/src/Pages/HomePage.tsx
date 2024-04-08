@@ -10,7 +10,7 @@ import {
 } from '../constants/errors';
 import { HelmetProvider } from 'react-helmet-async';
 import '../assets/index.css';
-import { getInitialTheme, getSanitizedConfig, setupHotjar } from '../utils';
+import { getSanitizedConfig, setupHotjar } from '../utils';
 import { SanitizedConfig } from '../interface/sanitized-config';
 import ErrorPage from './error-page';
 import HeadTagEditor from '../components/gitprofile/head-tag-editor';

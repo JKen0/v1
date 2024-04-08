@@ -168,7 +168,7 @@ const MasterTableRows = ({ gridRows }: MasterTableeRowsProps) => {
             </TableCell>
           </TableRow>
           {/* Rows for items */}
-          {row.items.map((rowItem: GridDataInterface, index) => (
+          {row.items.map((rowItem: GridDataInterface) => (
             <MasterRow
               key={`${rowItem.CourseCode}${rowItem.Term}`}
               row={rowItem}

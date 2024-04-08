@@ -6,12 +6,15 @@ import { TableHead, TableCell, Box, TableRow } from '@mui/material';
 import Paper from '@mui/material/Paper';
 
 import { TopSongsTypes } from '../Types/MusicTypes';
+import { useDarkTheme } from './Layout';
 
 interface TopSongsProps {
   data: TopSongsTypes[];
 }
 
 const TopSongs = ({ data }: TopSongsProps) => {
+  const { isDarkMode } = useDarkTheme();
+
   return (
     <>
       <Typography
@@ -39,11 +42,14 @@ const TopSongs = ({ data }: TopSongsProps) => {
                     height: index < 3 ? '60px' : '25px',
                     backgroundColor:
                       index === 0
-                        ? '#B59410'
+                        // TOP 1 SONG
+                        ? (isDarkMode ? '#B59410' : '#FFD700')
+                        // TOP 2 SONG
                         : index === 1
-                          ? '#71706e'
+                          ? (isDarkMode ? '#71706e' : '#C0C0C0')
+                          // TOP 3 SONG
                           : index === 2
-                            ? '#905923'
+                            ? (isDarkMode ? '#905923' : '#CD7F32')
                             : 'inherit', // Set different background color for first 3 rows
                   }}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

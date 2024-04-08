@@ -13,7 +13,7 @@ const ListItem = ({
   time: React.ReactNode;
   degree?: React.ReactNode;
   institution?: React.ReactNode;
-    description?: string[];
+    description?: (string | undefined)[];
     isLastIndex?: boolean;
 }) => (
   <li className="mb-5 ml-4">

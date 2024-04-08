@@ -2,7 +2,7 @@
 
 # V1 Portfolio Website
 
-V1 is a dynamic personal portfolio website meticulously crafted to showcase my professional journey, project portfolio, skill set, and educational background. Powered by TypeScript, React.js, Vite, React Router, ES6 and backend calls using axios. 
+V1 is a dynamic personal portfolio website to showcase my professional journey, project portfolio, skill set, and educational background. Powered by TypeScript, React.js, Vite, React Router, ES6 and backend calls using axios. 
 
 
 ## Features

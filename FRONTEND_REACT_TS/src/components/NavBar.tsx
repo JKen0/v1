@@ -169,7 +169,7 @@ const NavBar = ({
                 style={{ color: 'white', textDecoration: 'none' }}
                 to="games"
               >
-                <MenuItem onClick={handleCloseNavMenu}>Games</MenuItem>
+                <MenuItem onClick={handleCloseNavMenu} disabled={true}>Games</MenuItem>
               </Link>
             </Menu>
           </Box>
@@ -223,7 +223,7 @@ const NavBar = ({
               </Button>
             </Link>
             <Link style={{ color: 'white', textDecoration: 'none' }} to="games">
-              <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Button sx={{ my: 2, color: 'white', display: 'block' }} disabled={true}>
                 Games
               </Button>
             </Link>
@@ -234,7 +234,7 @@ const NavBar = ({
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="https://cdn.7tv.app/emote/61f223a81704494956111846/2x.webp"
+                  src="https://i.ibb.co/J3Ys4Kc/image.png"
                 />
               </IconButton>
             </Tooltip>

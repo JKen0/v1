@@ -1,9 +1,6 @@
-import { forwardRef, cloneElement } from 'react';
-import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
-import { useSpring, animated } from '@react-spring/web';
 import {
   Table,
   TableHead,
@@ -13,37 +10,6 @@ import {
   Paper,
 } from '@mui/material';
 
-interface FadeProps {
-  children: React.ReactElement;
-  in?: boolean;
-  onClick?: React.MouseEventHandler; // Replace 'any' with 'React.MouseEventHandler<any>
-  onEnter?: (node: HTMLElement | null, isAppearing: boolean) => void;
-  onExited?: (node: HTMLElement | null, isAppearing: boolean) => void;
-}
-
-const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(props, ref) {
-  const { children, in: open, onClick, onEnter, onExited, ...other } = props;
-  const style = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: open ? 1 : 0 },
-    onStart: () => {
-      if (open && onEnter) {
-        onEnter(null, true);
-      }
-    },
-    onRest: () => {
-      if (!open && onExited) {
-        onExited(null, true);
-      }
-    },
-  });
-
-  return (
-    <animated.div ref={ref} style={style} {...other}>
-      {cloneElement(children, { onClick })}
-    </animated.div>
-  );
-});
 
 const style = {
   position: 'absolute' as const,
@@ -70,15 +36,7 @@ const GradesHelpModal = ({ open, handleClose }: GradesHelpModal) => {
         aria-describedby="spring-modal-description"
         open={open}
         onClose={handleClose}
-        closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            TransitionComponent: Fade,
-          },
-        }}
       >
-        <Fade in={open}>
           <Box sx={style}>
             <Typography
               id="spring-modal-title"
@@ -195,8 +153,7 @@ const GradesHelpModal = ({ open, handleClose }: GradesHelpModal) => {
                 </ul>
               </Typography>
             </Paper>
-          </Box>
-        </Fade>
+        </Box>
       </Modal>
     </div>
   );

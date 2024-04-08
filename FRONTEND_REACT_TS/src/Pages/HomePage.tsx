@@ -110,10 +110,10 @@ const HomePage = ({ config }: { config: Config }) => {
       const data = response.data;
 
       setProfile({
-        avatar: data.avatar_url,
-        name: data.name || ' ',
+        avatar: 'https://i.ibb.co/J3Ys4Kc/image.png',
+        name: 'Kenneth Matira',
         bio: data.bio || '',
-        location: data.location || '',
+        location: data.location || 'Canada',
         company: data.company || 'McMaster University',
       });
 

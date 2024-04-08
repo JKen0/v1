@@ -20,8 +20,6 @@ import { Order, headCells } from '../Types/GridDataTypes';
 import Tooltip from '@mui/material/Tooltip';
 import InfoIcon from '@mui/icons-material/Info';
 
-import GradesHelpModal from './GradesHelpModal';
-
 interface Props {
   gridData: GridDataInterface[];
   setModalOpen: () => void;
@@ -44,7 +42,7 @@ interface EnhancedTableProps {
 
 // THIS DEAL WITH TABLE HEAD AND SORTING
 const EnhancedTableHead = (props: EnhancedTableProps) => {
-  const { order, orderBy, rowCount, onRequestSort, setModalOpen } = props;
+  const { order, orderBy, onRequestSort, setModalOpen } = props;
   const createSortHandler =
     (property: keyof GridDataInterface) =>
     (event: React.MouseEvent<unknown>) => {
@@ -210,9 +208,11 @@ const GradesGrid = ({ gridData, setModalOpen }: Props) => {
     event: React.MouseEvent<unknown>,
     property: keyof GridDataInterface,
   ) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property);
+    if (event) {
+      const isAsc = orderBy === property && order === 'asc';
+      setOrder(isAsc ? 'desc' : 'asc');
+      setOrderBy(property);
+    }
   };
 
   return (

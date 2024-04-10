@@ -165,14 +165,16 @@ const NavBar = ({
               >
                 <MenuItem onClick={handleCloseNavMenu}>Spotify</MenuItem>
               </Link>
+              {/*}
               <Link
                 style={{ color: 'white', textDecoration: 'none' }}
-                to="games"
+                //to="games"
               >
+            */}
                 <MenuItem onClick={handleCloseNavMenu} disabled={true}>
                   Games
                 </MenuItem>
-              </Link>
+              {/*</Link>*/}
             </Menu>
           </Box>
           <CodeIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -224,14 +226,14 @@ const NavBar = ({
                 Spotify
               </Button>
             </Link>
-            <Link style={{ color: 'white', textDecoration: 'none' }} to="games">
+            {/*<Link style={{ color: 'white', textDecoration: 'none' }} to="games">*/}
               <Button
                 sx={{ my: 2, color: 'white', display: 'block' }}
                 disabled={true}
               >
                 Games
               </Button>
-            </Link>
+            {/*</Link>*/}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

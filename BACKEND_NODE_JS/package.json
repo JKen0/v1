@@ -1,0 +1,21 @@
+{
+  "name": "v1-rest-api",
+  "version": "1.0.0",
+  "description": "Backend REST API to serve V1 frontend site",
+  "main": "src/app.js",
+  "repository": "https://github.com/JKen0/v1",
+  "author": "JKen0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install",
+    "start": "nodemon src/app.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "nodemon": "^3.1.0"
+  }
+}

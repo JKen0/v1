@@ -3,6 +3,8 @@
   "name": "v1",
   "version": "1.0.0",
   "type": "module",
+  "repository": "https://github.com/JKen0/v1",
+  "author": "JKen0",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",

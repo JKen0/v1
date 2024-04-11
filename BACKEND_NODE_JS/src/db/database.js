@@ -18,6 +18,9 @@ async function disconnect() {
 }
 
 async function getClient() {
+    if (client != null) return client;
+
+    await connect(); // Establish connection if no connection made
     return client;
 }
 

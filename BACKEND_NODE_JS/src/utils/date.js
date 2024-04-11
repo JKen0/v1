@@ -2,8 +2,7 @@ const isTokenExpired = (date) => {
     if (!date) return true;
 
     const currentDate = new Date();
-    const refreshDate = Date(date);
-    const timeDifference = currentDate - refreshDate;
+    const timeDifference = currentDate - date;
 
     // Convert milliseconds to minutes
     const minutesDifference = timeDifference / (1000 * 60);

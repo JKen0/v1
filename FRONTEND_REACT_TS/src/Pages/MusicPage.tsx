@@ -50,8 +50,6 @@ const MusicPage = () => {
     fetchData();
   }, [songTimeRange, artistTimeRange]);
 
-  console.log(artistTimeRange);
-
   return (
     <Container maxWidth="lg" sx={{ paddingTop: 3 }}>
       <RecentTracks data={jsonData.previousSongs} />

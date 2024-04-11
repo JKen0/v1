@@ -87,20 +87,18 @@ const Layout = () => {
       <CssBaseline />
       <NavBar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       {showAlert && <WarningAlert onClose={toggleAlert} />}
-      {isLoading ?
+      {isLoading &&
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '75vh',
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
           }}
         >
           <CircularProgress size={75} />
         </Box>
-        :
-        <Outlet context={{ isDarkMode, toggleLoading, toggleAlert } satisfies ContextType} />
       }
+      <Outlet context={{ isDarkMode, toggleLoading, toggleAlert } satisfies ContextType} />
       <Footer
         title="JKen0"
         description="This Website is powered by React.js, TypeScript, Vite, Node.js, JavaScript, MongoDB, Render, and GitHub Pages."

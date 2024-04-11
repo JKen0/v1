@@ -44,6 +44,53 @@ async function checkAccessToken(tokenData) {
     return newTokenData;
 };
 
+async function getSpotifyData(tokenData, parameters) {
+    const result = { previousSongs: [], topSongs: [], topArtists: [] }
+    const songsTimeRange = parameters.songsTimeRange ? parameters.songsTimeRange : "medium_term";
+    const artistTimeRange = parameters.artistTimeRange ? parameters.artistTimeRange : "medium_term";
+
+    const getCallConfig = {
+        headers: {
+            Authorization: `Bearer ${tokenData.access_token}`
+        }
+    }
+
+    const getPreviousSongPlayed = await get(`https://api.spotify.com/v1/me/player/recently-played?limit=50`, getCallConfig);
+    const getTopSongs = await get(`https://api.spotify.com/v1/me/top/tracks?time_range=${songsTimeRange}&limit=10`, getCallConfig);
+    const getTopArtists = await get(`https://api.spotify.com/v1/me/top/artists?time_range=${artistTimeRange}&limit=5`, getCallConfig);
+
+    getPreviousSongPlayed.items.map((item) => {
+        result.previousSongs.push({
+            name: item.track.name,
+            timePlayed: item.played_at,
+            linkSpotify: item.track.external_urls.spotify,
+            linkPreview: item.track.preview_url,
+            artists: item.track.artists.map(artist => artist.name).join(', '),
+            albumPic: item.track.album.images[0].url
+        });
+    });
+
+    getTopSongs.items.map((item) => {
+        result.topSongs.push({
+            name: item.name,
+            linkSpotify: item.external_urls.spotify,
+            artists: item.artists.map(artist => artist.name).join(', '),
+            artistPic: item.album.images[0].url
+        });
+    });
+
+    getTopArtists.items.map((item) => {
+        result.topArtists.push({
+            name: item.name,
+            linkSpotify: item.external_urls.spotify,
+            artistPic: item.images[0].url
+        });
+    });
+
+    // Convert the object to JSON format
+    return result;
+}
 
 
-module.exports = { refreshAccessToken, checkAccessToken };
+
+module.exports = { refreshAccessToken, checkAccessToken, getSpotifyData };

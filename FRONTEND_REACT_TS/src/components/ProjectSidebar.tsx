@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Divider } from '@mui/material';
 import { Link as Link2 } from 'react-router-dom';
-import { useDarkTheme } from './Layout';
+import { useLayoutContext } from './Layout';
 
 interface ProjectSidearInterface {
   pages: ReadonlyArray<{
@@ -24,7 +24,7 @@ interface ProjectSidearInterface {
 
 export default function ProjectSidebar(props: ProjectSidearInterface) {
   const { pages, social, key_contributions, tech_stack } = props;
-  const { isDarkMode } = useDarkTheme();
+  const { isDarkMode } = useLayoutContext();
 
   return (
     <Grid item xs={12} md={4}>

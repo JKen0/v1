@@ -6,14 +6,14 @@ import { TableHead, TableCell, Box, TableRow } from '@mui/material';
 import Paper from '@mui/material/Paper';
 
 import { TopSongsTypes } from '../Types/MusicTypes';
-import { useDarkTheme } from './Layout';
+import { useLayoutContext } from './Layout';
 
 interface TopSongsProps {
   data: TopSongsTypes[];
 }
 
 const TopSongs = ({ data }: TopSongsProps) => {
-  const { isDarkMode } = useDarkTheme();
+  const { isDarkMode } = useLayoutContext();
 
   return (
     <>

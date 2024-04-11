@@ -16,7 +16,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { CheckCircle } from '@mui/icons-material';
 import Tooltip from '@mui/material/Tooltip';
 import InfoIcon from '@mui/icons-material/Info';
-import { useDarkTheme } from './Layout';
+import { useLayoutContext } from './Layout';
 
 interface Props {
   gridData: GridDataInterface[];
@@ -147,7 +147,7 @@ interface MasterTableeRowsProps {
 }
 
 const MasterTableRows = ({ gridRows }: MasterTableeRowsProps) => {
-  const { isDarkMode } = useDarkTheme();
+  const { isDarkMode } = useLayoutContext();
 
   return (
     <Fragment>

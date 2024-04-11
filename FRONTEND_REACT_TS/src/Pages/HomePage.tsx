@@ -26,7 +26,7 @@ import GithubProjectCard from '../components/gitprofile/github-project-card';
 import ExternalProjectCard from '../components/gitprofile/external-project-card';
 import BlogCard from '../components/gitprofile/blog-card';
 import PublicationCard from '../components/gitprofile/publication-card';
-import { useDarkTheme } from '../components/Layout';
+import { useLayoutContext } from '../components/Layout';
 import CONFIG from '../../gitprofile.config';
 
 const getHomeTheme = (isDark: boolean) => {
@@ -35,7 +35,7 @@ const getHomeTheme = (isDark: boolean) => {
 };
 
 const HomePage = ({ config }: { config: Config }) => {
-  const { isDarkMode } = useDarkTheme();
+  const { isDarkMode } = useLayoutContext();
 
   const [sanitizedConfig] = useState<SanitizedConfig | Record<string, never>>(
     getSanitizedConfig(config),

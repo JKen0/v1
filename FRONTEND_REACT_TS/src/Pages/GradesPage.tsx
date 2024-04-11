@@ -13,6 +13,8 @@ import {
 import { SelectChangeEvent } from '@mui/material/Select';
 import GradesHelpModal from '../components/GradesHelpModal';
 import { Container } from '@mui/material';
+import { useLayoutContext } from '../components/Layout';
+import axios from 'axios';
 
 const GradesPage = () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -34,6 +36,8 @@ const GradesPage = () => {
       (item) => item.department,
     ) as string[],
   });
+  const { toggleLoading, toggleAlert } = useLayoutContext();
+
 
   const openModal = () => {
     setSetModalShowing(true);
@@ -150,9 +154,21 @@ const GradesPage = () => {
   };
 
   useEffect(() => {
-    // Fetch JSON data from your API or local file
-    setJsonData(gradesdata);
-    console.log('got test grade data');
+    const fetchData = async () => {
+      try {
+        toggleLoading(true); // Start loading
+        const response = await axios.get('https://v1-api-je3y.onrender.com/academics/getAllGrades');
+        setJsonData(response.data);
+      } catch (error) {
+        // handle error
+        setJsonData(gradesdata);
+        toggleAlert(true);
+      } finally {
+        toggleLoading(false); // Stop loading (whether request succeeded or failed)
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {

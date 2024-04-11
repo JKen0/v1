@@ -12,6 +12,10 @@ app.use(express.static(__dirname + '/public'))
 app.use('/academics', academicsRouter);
 app.use('/spotify', spotifyRouter);
 
+app.get('/test', (req, res) => {
+    res.json({ status: 200, message: "test route woorking" });
+});
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

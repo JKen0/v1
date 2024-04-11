@@ -35,7 +35,6 @@ async function refreshAccessToken(tokenData) {
 };
 
 async function checkAccessToken(tokenData) {
-    console.log(tokenData.refresh_date);
     if (!isTokenExpired(tokenData.refresh_date)) return tokenData;
 
     // if expired then refresh access token and return new data

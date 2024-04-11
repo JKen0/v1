@@ -102,8 +102,8 @@ const Layout = () => {
         <Outlet context={{ isDarkMode, toggleLoading, toggleAlert } satisfies ContextType} />
       }
       <Footer
-        title="Kenneth Matira"
-        description="This Website is powered by React.js, TypeScript, Vite, Node.js, and GitHub Pages."
+        title="JKen0"
+        description="This Website is powered by React.js, TypeScript, Vite, Node.js, JavaScript, MongoDB, Render, and GitHub Pages."
       />
     </ThemeProvider>
   );

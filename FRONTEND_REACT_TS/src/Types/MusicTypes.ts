@@ -25,3 +25,5 @@ export interface SpotifyDataInterface {
   topSongs: TopSongsTypes[];
   topArtists: TopArtistsTypes[];
 }
+
+export type TimeRangeItems = 'short_term' | 'medium_term' | 'long_term';

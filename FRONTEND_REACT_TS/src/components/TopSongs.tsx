@@ -5,24 +5,43 @@ import TableContainer from '@mui/material/TableContainer';
 import { TableHead, TableCell, Box, TableRow } from '@mui/material';
 import Paper from '@mui/material/Paper';
 
-import { TopSongsTypes } from '../Types/MusicTypes';
+import { TopSongsTypes, TimeRangeItems } from '../Types/MusicTypes';
 import { useLayoutContext } from './Layout';
+
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
 
 interface TopSongsProps {
   data: TopSongsTypes[];
+  handleChangeTimeFrame: (event: SelectChangeEvent) => void;
+  timeRangeValue: TimeRangeItems;
 }
 
-const TopSongs = ({ data }: TopSongsProps) => {
+const TopSongs = ({ data, handleChangeTimeFrame, timeRangeValue }: TopSongsProps) => {
   const { isDarkMode } = useLayoutContext();
 
   return (
     <>
-      <Typography
-        variant="h4"
-        style={{ paddingTop: '40px', paddingBottom: '20px' }}
-      >
-        Top Tracks
-      </Typography>
+      <Box display="flex" alignItems="center">
+        <Typography variant="h4" style={{ paddingTop: '60px', paddingBottom: '20px' }}>
+          Top Tracks
+        </Typography>
+        <Box marginLeft="auto">
+          <InputLabel id="demo-simple-select-standard-label">Time Frame</InputLabel>
+          <Select
+            labelId="demo-simple-select-standard-label"
+            id="demo-simple-select-standard"
+            value={timeRangeValue}
+            label="Top Tracks Time Frame"
+            onChange={handleChangeTimeFrame}
+          >
+            <MenuItem value={"short_term"}>Last 30 days</MenuItem>
+            <MenuItem value={"medium_term"}>Last 180 days</MenuItem>
+            <MenuItem value={"long_term"}>Last 365 days</MenuItem>
+          </Select>
+        </Box>
+      </Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table" size={'small'}>
           <TableHead>

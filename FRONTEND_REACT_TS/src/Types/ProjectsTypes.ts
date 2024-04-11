@@ -16,3 +16,4 @@ export type ProjectListType = {
   tech_stack: string[];
   key_contributions: string[];
 };
+

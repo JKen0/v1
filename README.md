@@ -4,6 +4,8 @@
 
 V1 is a dynamic personal portfolio website to showcase my professional journey, project portfolio, skill set, and educational background. Powered by TypeScript, React.js, Vite, React Router, ES6 and backend calls using axios. 
 
+Its Node.js backend seamlessly interacts with MongoDB for data storage and fetches music-related information from the Spotify API. This setup efficiently manages professional journey details, project portfolio, skill sets, and educational background, delivering a captivating user experience.
+
 
 ## Features
 

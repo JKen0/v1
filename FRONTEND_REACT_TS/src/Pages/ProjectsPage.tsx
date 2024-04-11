@@ -8,93 +8,13 @@ import ProjectSidebar from '../components/ProjectSidebar';
 import { Typography, Divider, Button } from '@mui/material';
 import ChoosePostTile from '../components/ChoosePostTile';
 import { ProjectPagesTypes, ProjectListType } from '../Types/ProjectsTypes';
-
 import ProjectKATNNBody from './ProjectBody/ProjectKATNNBody';
 import ProjectKATCEstBody from './ProjectBody/ProjectKATCEstBody';
 import ProjectChainlinkBody from './ProjectBody/ProjectChainlinkBody';
-
 import { LinkedIn } from '@mui/icons-material';
-
-const projectList: Array<ProjectListType> = [
-  {
-    id: 'katnn-project',
-    projectType: 'degree-milestone',
-    title: 'KATNN: KAT Walk C Alternative Motion Capture Algorithm',
-    description:
-      'This report introduces KATNN, an alternative input mechanism for the KAT Walk C omni-directional treadmill, aiming to address limitations in the original algorithm by utilizing modular neural networks. KATNN focuses on enabling multi-directional movement and accurately registering slower motions to reduce motion sickness and disorientation in Virtual Reality (VR) experiences.',
-    image:
-      'https://t4.ftcdn.net/jpg/04/96/88/45/360_F_496884556_Z5W6NoexSlZzBeeLSnNF5pkec5RA3maC.jpg',
-    imageText: 'main image description',
-    linkText: 'Continue reading…',
-    contributors: 'Kenneth Matira',
-    key_contributions: [
-      'Improved the overall VR experience by enabling smoother and more natural movement within virtual environments, enhancing user engagement and satisfaction.',
-      'Developed an innovative input mechanism for the KAT Walk C omni-directional treadmill, addressing limitations in the original algorithm.',
-      'Implementing features that enable users to customize sensitivity and rotation offset, enhancing overall immersion and providing a tailored experience for each user.',
-      "I established a flexible framework that facilitates ongoing research to refine motion accuracy, paving the way for continual improvement and innovation in the project's capabilities.",
-    ],
-    tech_stack: [
-      'Virtual Reality (VR)',
-      'C#',
-      'Python',
-      'Unity',
-      'Neural Networks',
-      'WebSocket Communication',
-      'Back-end Server',
-      'Motion Capture',
-    ],
-  },
-  {
-    id: 'katc-estimate-position-project',
-    projectType: 'course',
-    title: 'KAT Walk C: Foot Estimation Position Code',
-    description:
-      "The estimation of foot position on the KAT Walk C relies on sparse sensor readings to gauge the foot's location relative to the treadmill surface, employing techniques like Baycentric Interpolation for estimation.",
-    image:
-      'https://mmos.com/wp-content/uploads/2021/07/crimson-desert-motion-capture-actors-banner.jpg',
-    imageText: 'main image description',
-    linkText: 'Continue reading…',
-    contributors: 'Kenneth Matira',
-    key_contributions: [
-      'Developed algorithms for text extraction and interpretation, improving the accuracy and efficiency of position estimation.',
-      "Enhanced the project's data export capabilities to support diverse file formats and data structures, maximizing flexibility for downstream analysis tasks.",
-      'Implemented Baycentric interpolation to accurately estimate the position of the foot on the KAT Walk C treadmill, enhancing the precision of motion tracking.',
-      'Developed real-time sensor data fetching code.',
-    ],
-    tech_stack: ['Python', 'Excel', 'pytesseract', 'Motion Capture'],
-  },
-  {
-    id: 'chainlink-project',
-    projectType: 'course',
-    title: 'Automated Insurance Policies On Chainlink',
-    description:
-      'In the Chainlink project, I leveraged Chainlink to develop data- centric parametrized insurance policies.These policies were designed to dynamically adjust payouts based on real - time rain data, enhancing flexibility and accuracy in insurance coverage.',
-    image:
-      'https://www.shutterstock.com/image-illustration/blockchain-technology-futuristic-hud-background-600nw-1044225994.jpg',
-    imageText: 'main image description',
-    linkText: 'Continue reading…',
-    contributors: 'Kenneth Matira',
-    key_contributions: [
-      'Automated payment processes through smart contracts, ensuring seamless and timely payouts to policyholders based on predefined conditions.',
-      'Empowered users with transparent and immutable transaction records, fostering trust and confidence in the insurance system.',
-      "Leveraged Chainlink's decentralized oracle networks to ensure reliability and trustlessness of data inputs.",
-      'Enhanced decentralization for increased security, transparency, and accessibility within the insurance ecosystem.',
-    ],
-    tech_stack: [
-      'C++',
-      'Solidity',
-      'Node.js',
-      'Chainlink Node',
-      'React.js',
-      'JavaScript',
-      'Weather API',
-      'REST API',
-      'Webhooks',
-      'Ethereum',
-      'MetaMask',
-    ],
-  },
-];
+import axios from 'axios';
+import { useLayoutContext } from '../components/Layout';
+import projectsdata from '../TestData/projectsdata.json';
 
 const sidebar = {
   pages: [
@@ -113,11 +33,7 @@ const sidebar = {
   ],
 };
 
-const ChooseProjectLayout = ({
-  setCurrentPage,
-}: {
-  setCurrentPage: (e: ProjectPagesTypes) => void;
-}) => {
+const ChooseProjectLayout = ({ projectList, setCurrentPage, }: { projectList: Array<ProjectListType>; setCurrentPage: (e: ProjectPagesTypes) => void; }) => {
   return (
     <Container style={{ paddingTop: '20px' }} maxWidth="lg">
       <Typography variant="h4" gutterBottom>
@@ -182,10 +98,12 @@ const DisplaySelectedProject = ({
   currentPage,
   setCurrentPage,
   pageIndex,
+  projectList
 }: {
   pageIndex: number;
   currentPage: ProjectPagesTypes;
   setCurrentPage: (e: ProjectPagesTypes) => void;
+    projectList: Array<ProjectListType>;
 }) => {
   return (
     <Container style={{ paddingTop: '10px' }} maxWidth="lg">
@@ -250,9 +168,11 @@ const DisplaySelectedProject = ({
 };
 
 const ProjectsPage = () => {
+  const [jsonData, setJsonData] = useState<Array<ProjectListType>>([]);
   const [currentPage, setCurrentPage] = useState<ProjectPagesTypes>('all');
   const [pageIndex, setPageIndex] = useState<number>(-1);
   const { search } = useLocation();
+  const { toggleLoading, toggleAlert } = useLayoutContext();
 
   // Function to check if the query parameter is valid
   const isValidPageType = (pageType: string): pageType is ProjectPagesTypes => {
@@ -266,6 +186,22 @@ const ProjectsPage = () => {
 
   // Set currentPage based on the query parameter
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        toggleLoading(true); // Start loading
+        const response = await axios.get('https://v1-api-je3y.onrender.com/academics/getAllProjects');
+        setJsonData(response.data);
+      } catch (error) {
+        // handle error
+        setJsonData(projectsdata as Array<ProjectListType>);
+        toggleAlert(true);
+      } finally {
+        toggleLoading(false); // Stop loading (whether request succeeded or failed)
+      }
+    };
+
+    fetchData();
+
     const queryParams = new URLSearchParams(search);
     const queryParamValue = queryParams.get('content');
 
@@ -295,13 +231,14 @@ const ProjectsPage = () => {
   return (
     <>
       {currentPage === 'all' && pageIndex === -1 && (
-        <ChooseProjectLayout setCurrentPage={setCurrentPage} />
+        <ChooseProjectLayout setCurrentPage={setCurrentPage} projectList={jsonData} />
       )}
       {currentPage != 'all' && pageIndex != -1 && (
         <DisplaySelectedProject
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           pageIndex={pageIndex}
+          projectList={jsonData}
         />
       )}
     </>

@@ -110,7 +110,7 @@ const HomePage = ({ config }: { config: Config }) => {
       const data = response.data;
 
       setProfile({
-        avatar: 'https://i.ibb.co/J3Ys4Kc/image.png',
+        avatar: data.avatar_url,
         name: 'Kenneth Matira',
         bio: data.bio || '',
         location: data.location || 'Canada',

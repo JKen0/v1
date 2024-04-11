@@ -12,5 +12,16 @@ router.get('/getAllGrades', (async (req, res) => {
     }
 }));
 
+router.get('/getAllProjects', (async (req, res) => {
+    try {
+        const projects = await db.getAllProjects(); // Fetch documents using database function
+        res.json(projects);
+    } catch (error) {
+        console.error('Error fetching documents:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+}));
+
+
 
 module.exports = router;

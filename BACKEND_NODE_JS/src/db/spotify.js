@@ -6,8 +6,7 @@ const dbName = 'spotify_';
 async function getSpotifyToken() {
     const client = await getClient();
     const collection = await client.db(dbName).collection("tokens");
-
-    return collection.findOne({ _id: Object(process.env.MONGODB_TOKEN_ID) });
+    return await collection.findOne({});
 };
 
 async function updateSpotifyToken(tokenData) {
@@ -15,7 +14,7 @@ async function updateSpotifyToken(tokenData) {
     const collection = await client.db(dbName).collection("tokens");
 
     return await collection.updateOne(
-        { _id: Object(process.env.MONGODB_TOKEN_ID) },
+        { _id: tokenData._id },
         {
             $set: {
                 access_token: tokenData.access_token,

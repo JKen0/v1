@@ -4,6 +4,9 @@ const { updateSpotifyToken } = require('../db/spotify');
 const { isTokenExpired } = require('../utils/date');
 
 
+// Define valid time range options
+const validTimeRanges = ['short_term', 'medium_term', 'long_term'];
+
 async function refreshAccessToken(tokenData) {
     // create headers and parameters
     const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -44,8 +47,8 @@ async function checkAccessToken(tokenData) {
 
 async function getSpotifyData(tokenData, parameters) {
     const result = { previousSongs: [], topSongs: [], topArtists: [] }
-    const songsTimeRange = parameters.songsTimeRange ? parameters.songsTimeRange : "medium_term";
-    const artistTimeRange = parameters.artistTimeRange ? parameters.artistTimeRange : "medium_term";
+    const songsTimeRange = parameters.songsTimeRange && validTimeRanges.includes(parameters.songsTimeRange) ? parameters.songsTimeRange : "medium_term";
+    const artistTimeRange = parameters.artistTimeRange && validTimeRanges.includes(parameters.artistTimeRange) ? parameters.artistTimeRange : "medium_term";
 
     const getCallConfig = {
         headers: {

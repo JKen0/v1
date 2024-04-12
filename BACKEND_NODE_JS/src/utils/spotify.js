@@ -47,8 +47,8 @@ async function checkAccessToken(tokenData) {
 
 async function getSpotifyData(tokenData, parameters) {
     const result = { previousSongs: [], topSongs: [], topArtists: [] }
-    const songsTimeRange = parameters.songsTimeRange && validTimeRanges.includes(parameters.songsTimeRange) ? parameters.songsTimeRange : "medium_term";
-    const artistTimeRange = parameters.artistTimeRange && validTimeRanges.includes(parameters.artistTimeRange) ? parameters.artistTimeRange : "medium_term";
+    const songsTimeRange = parameters.songsTimeRange ? parameters.songsTimeRange : "medium_term";
+    const artistTimeRange = parameters.artistTimeRange ? parameters.artistTimeRange : "medium_term";
 
     const getCallConfig = {
         headers: {

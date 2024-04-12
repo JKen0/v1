@@ -10,8 +10,10 @@ router.get('/getMusicData', (async (req, res) => {
     try {
         const { songsTimeRange, artistTimeRange } = req.query;
 
+        //check for valid values;
         if (songsTimeRange && !validTimeRanges.includes(songsTimeRange) || artistTimeRange && !validTimeRanges.includes(artistTimeRange)) {
-            return res.json(400).json({ error: 'Invalid Time Range query parameter' });
+            res.send(400).json({ error: 'Invalid Time Range query parameter' });
+            return;
         }
 
         const getToken = await db.getSpotifyToken(); // Fetch documents using database function

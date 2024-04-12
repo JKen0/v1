@@ -122,7 +122,7 @@ const BlogCard = ({
                       }}
                     >
                       {/* Title on the left */}
-                      <h2 className="font-medium text-base-content opacity-80">
+                      <h2 className="font-large text-base-content opacity-80">
                         {experience.title}
                       </h2>
                       {/* "Hello World" on the right */}

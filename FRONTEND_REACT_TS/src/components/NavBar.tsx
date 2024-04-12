@@ -240,8 +240,8 @@ const NavBar = ({
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
-                  alt="Remy Sharp"
-                  src="https://i.ibb.co/J3Ys4Kc/image.png"
+                  alt="Github Avatar"
+                  src="https://avatars.githubusercontent.com/u/81273753?v=4"
                 />
               </IconButton>
             </Tooltip>

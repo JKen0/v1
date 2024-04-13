@@ -160,7 +160,7 @@ const BlogCard = ({
                       {experience.description.map((item, index) => (
                         <li
                           style={{ paddingTop: "4px" }}
-                          className="text-base-content opacity-60 text-xs"
+                          className="text-left text-base-content opacity-60 text-xs"
                           key={`description-${index}`}
                         >
                           {item}

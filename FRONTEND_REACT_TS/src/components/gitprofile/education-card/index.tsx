@@ -24,9 +24,9 @@ const ListItem = ({
     <div className="my-0.5 text-xs">{time}</div>
     <h3 className="font-semibold">{degree}</h3>
     <div className="mb-4 font-normal">{institution}</div>
-    <ul style={{ marginTop: "-10px", paddingLeft: '12px', listStyleType: 'disc' }}>
+    <ul style={{ marginTop: "-10px", paddingLeft: '12px', listStyleType: 'disc', textAlign: "left" }}>
       {description?.map((desc, index) => (
-        <li style={{ paddingBottom: "4px" }} className="text-center md:text-left w-full" key={`educ-desc-${index}`}>{desc}</li>
+        <li style={{ paddingBottom: "4px" }} className="text-left md:text-left w-full" key={`educ-desc-${index}`}>{desc}</li>
 
       ))}
     </ul>

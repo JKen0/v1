@@ -1,8 +1,8 @@
+import { useState, useEffect } from 'react';
 import { TopArtistsTypes, TimeRangeItems } from '../Types/MusicTypes';
 import { Typography } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -10,7 +10,6 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
-
 interface TopArtistsProps {
   data: TopArtistsTypes[];
   handleChangeTimeFrame: (event: SelectChangeEvent) => void;
@@ -22,6 +21,20 @@ const numRowsCol = (num: number): number => {
 };
 
 const TopArtists = ({ data, handleChangeTimeFrame, timeRangeValue }: TopArtistsProps) => {
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <>
       <Box display="flex" alignItems="center">
@@ -46,9 +59,7 @@ const TopArtists = ({ data, handleChangeTimeFrame, timeRangeValue }: TopArtistsP
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <ImageList
           variant="quilted"
-          cols={4}
-          rowHeight={275}
-          style={{ width: '900px' }}
+          cols={screenWidth > 600 ? 4 : 2}
         >
           {data.map((item, index) => (
             <ImageListItem
@@ -67,10 +78,6 @@ const TopArtists = ({ data, handleChangeTimeFrame, timeRangeValue }: TopArtistsP
                     component="img"
                     image={item.artistPic}
                     title={item.name}
-                    style={{
-                      maxWidth: `${numRowsCol(index) * 225}px`,
-                      maxHeight: `${numRowsCol(index) * 225}px`,
-                    }}
                   />
                   <CardContent style={{ padding: '8px' }}>
                     <Typography variant="h6" component="div">

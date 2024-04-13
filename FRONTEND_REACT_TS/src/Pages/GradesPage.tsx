@@ -224,7 +224,7 @@ const GradesPage = () => {
   };
 
   return (
-    <Container maxWidth="lg" style={{ minWidth: '800px' }}>
+    <Container maxWidth="lg">
       <GridFilterBar
         filterOptions={filterOptions}
         selectedFilters={selectedFilters}

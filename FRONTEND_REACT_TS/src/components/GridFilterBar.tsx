@@ -44,7 +44,7 @@ const GridFilterBar = ({
           <MenuItem value={'term-grouping'}>Group By Term</MenuItem>
         </Select>
       </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 275 }}>
+      <FormControl sx={{ m: 1, minWidth: 225 }}>
         <InputLabel id="demo-simple-select-helper-label">
           Academic Career
         </InputLabel>

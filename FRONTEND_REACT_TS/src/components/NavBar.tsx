@@ -144,37 +144,30 @@ const NavBar = ({
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <Link style={{ color: 'white', textDecoration: 'none' }} to="/">
+              <Link style={{ color: isDarkMode ? 'white' : "black", textDecoration: 'none' }} to="/">
                 <MenuItem onClick={handleCloseNavMenu}>Home</MenuItem>
               </Link>
               <Link
-                style={{ color: 'white', textDecoration: 'none' }}
+                style={{ color: isDarkMode ? 'white' : "black", textDecoration: 'none' }}
                 to="grades"
               >
                 <MenuItem onClick={handleCloseNavMenu}>Grades</MenuItem>
               </Link>
               <Link
-                style={{ color: 'white', textDecoration: 'none' }}
+                style={{ color: isDarkMode ? 'white' : "black", textDecoration: 'none' }}
                 to="projects"
               >
                 <MenuItem onClick={handleCloseNavMenu}>Projects</MenuItem>
               </Link>
               <Link
-                style={{ color: 'white', textDecoration: 'none' }}
+                style={{ color: isDarkMode ? 'white' : "black", textDecoration: 'none' }}
                 to="spotify"
               >
                 <MenuItem onClick={handleCloseNavMenu}>Spotify</MenuItem>
               </Link>
-              {/*}
-              <Link
-                style={{ color: 'white', textDecoration: 'none' }}
-                //to="games"
-              >
-            */}
-                <MenuItem onClick={handleCloseNavMenu} disabled={true}>
-                  Games
-                </MenuItem>
-              {/*</Link>*/}
+              <MenuItem onClick={handleCloseNavMenu} disabled={true}>
+                Games
+              </MenuItem>
             </Menu>
           </Box>
           <CodeIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -226,14 +219,12 @@ const NavBar = ({
                 Spotify
               </Button>
             </Link>
-            {/*<Link style={{ color: 'white', textDecoration: 'none' }} to="games">*/}
-              <Button
-                sx={{ my: 2, color: 'white', display: 'block' }}
-                disabled={true}
-              >
-                Games
-              </Button>
-            {/*</Link>*/}
+            <Button
+              sx={{ my: 2, color: 'white', display: 'block' }}
+              disabled={true}
+            >
+              Games
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

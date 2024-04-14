@@ -22,6 +22,8 @@ const getWebsiteTitle = (pathname: string) => {
     return 'Spotify';
   } else if (pathname === '/projects') {
     return 'Projects';
+  } else if (pathname === '/login') {
+    return 'Login';
   } else {
     return 'Not Found';
   }

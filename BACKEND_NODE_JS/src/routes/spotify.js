@@ -26,7 +26,7 @@ router.get('/getMusicData', (async (req, res) => {
             return res.status(400).json({ error: error.code, message: error.message });
         }
 
-        console.error('Error fetching documents:', error); cd
+        console.error('Error fetching documents:', error);
         return res.status(500).json({ code: "INTERNAL_ERROR", message: 'Internal Server Error' });
     }
 }));

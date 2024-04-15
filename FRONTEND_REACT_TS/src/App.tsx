@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import HomePage from './Pages/HomePage';
@@ -11,7 +11,7 @@ import CONFIG from '../gitprofile.config';
 
 const App = () => {
   return (
-    <Router basename="/v1">
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage config={CONFIG} />} />
@@ -22,7 +22,7 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </Router>
+    </HashRouter>
   );
 };
 

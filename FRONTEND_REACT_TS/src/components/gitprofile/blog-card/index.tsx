@@ -122,12 +122,12 @@ const BlogCard = ({
                       }}
                     >
                       {/* Title on the left */}
-                      <h2 className="font-large text-base-content opacity-80">
+                      <h2 className="font-large text-base-content opacity-80" style={{ textAlign: "left" }}>
                         {experience.title}
                       </h2>
                       {/* "Hello World" on the right */}
                       <p
-                        className="text-base-content opacity-70 text-xs"
+                        className="font-large text-base-content opacity-70 text-xs"
                         style={{ textAlign: 'right' }}
                       >
                         {experience.date}
@@ -143,14 +143,14 @@ const BlogCard = ({
                     >
                       {/* Distance date on the left */}
                       <p
-                        className="text-base-content opacity-60 text-xs"
+                        className="font-large text-base-content opacity-60 text-xs"
                         style={{ textAlign: 'left' }}
                       >
                         {experience.company}
                       </p>
                       {/* "Hello World" on the right */}
                       <p
-                        className="text-base-content opacity-70 text-xs"
+                        className="font-large text-base-content opacity-70 text-xs"
                         style={{ textAlign: 'right' }}
                       >
                         {experience.location}

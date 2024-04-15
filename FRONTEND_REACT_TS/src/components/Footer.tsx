@@ -16,19 +16,12 @@ function Copyright() {
   );
 }
 
-interface FooterProps {
-  description: string;
-  title: string;
-}
-
-export default function Footer(props: FooterProps) {
-  const { description, title } = props;
-
+export default function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
-          {title}
+          JKen0
         </Typography>
         <Typography
           variant="subtitle1"
@@ -36,7 +29,7 @@ export default function Footer(props: FooterProps) {
           color="text.secondary"
           component="p"
         >
-          {description}
+          This Website is powered by React.js, TypeScript, Vite, Node.js, JavaScript, MongoDB, Render, and GitHub Pages.
         </Typography>
         <Copyright />
       </Container>

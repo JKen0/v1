@@ -15,7 +15,9 @@ Its Node.js backend seamlessly interacts with MongoDB for data storage and fetch
   
 - **Projects Page**: Serves as a page for all projects I have worked on throughout the last couple of years, highlighting my contributions and expertise in various domains and technologies.
   
-Additionaly users have the ability to change the theme by clicking on the avatar icon to open settings.
+Additionaly users have the ability to change the theme by clicking on the avatar icon to open settings, so far the user has the ability to toggle dark mode theme. 
+
+Additionally, this project consists of a REST API backend application powered by Node.js and MongoDB, serves live data to our frontend application. Using Node.js, we ensure high performance and scalability, handling concurrent requests efficiently. This backend application is currently deployed and running on render servers. Currently we have calls to fetch course data, fetch spotify data, and fetch project data. 
 
 ## Deployment
 

@@ -9,6 +9,7 @@ import { SpotifyDataInterface, TimeRangeItems } from '../Types/MusicTypes';
 import { SelectChangeEvent } from '@mui/material/Select';
 import { useLayoutContext } from '../components/Layout';
 import axios from 'axios';
+import { getApiUrl } from '../utils';
 
 const MusicPage = () => {
   const [jsonData, setJsonData] = useState<SpotifyDataInterface>({
@@ -24,7 +25,7 @@ const MusicPage = () => {
     try {
       // Start loading
       toggleLoading(true);
-      const response = await axios.get(`https://v1-api-je3y.onrender.com/spotify/getMusicData?songsTimeRange=${songTimeRange}&artistTimeRange=${artistTimeRange}`);
+      const response = await axios.get(`${getApiUrl()}/spotify/getMusicData?songsTimeRange=${songTimeRange}&artistTimeRange=${artistTimeRange}`);
       setJsonData(response.data as SpotifyDataInterface);
     } catch (error) {
       // handle error

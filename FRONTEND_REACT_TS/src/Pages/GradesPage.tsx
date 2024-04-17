@@ -15,6 +15,7 @@ import GradesHelpModal from '../components/GradesHelpModal';
 import { Container } from '@mui/material';
 import { useLayoutContext } from '../components/Layout';
 import axios from 'axios';
+import { getApiUrl } from '../utils';
 
 const GradesPage = () => {
   const queryParams = new URLSearchParams(window.location.search);
@@ -157,7 +158,7 @@ const GradesPage = () => {
     const fetchData = async () => {
       try {
         toggleLoading(true); // Start loading
-        const response = await axios.get('https://v1-api-je3y.onrender.com/academics/getAllGrades');
+        const response = await axios.get(`${getApiUrl()}/academics/getAllGrades`);
         setJsonData(response.data);
       } catch (error) {
         // handle error

@@ -229,3 +229,12 @@ export const getLanguageColor = (language: string): string => {
     return 'gray';
   }
 };
+
+export const getApiUrl = (): string => {
+  const hostname = window.location.hostname;
+  if (hostname === "jken0.github.io") {
+    return "https://v1-api-je3y.onrender.com";
+  } else {
+    return "http://localhost:4000";
+  }
+}

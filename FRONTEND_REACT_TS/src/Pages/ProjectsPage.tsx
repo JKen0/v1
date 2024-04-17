@@ -15,6 +15,7 @@ import { LinkedIn } from '@mui/icons-material';
 import axios from 'axios';
 import { useLayoutContext } from '../components/Layout';
 import projectsdata from '../TestData/projectsdata.json';
+import { getApiUrl } from '../utils';
 
 const sidebar = {
   pages: [
@@ -189,7 +190,7 @@ const ProjectsPage = () => {
     const fetchData = async () => {
       try {
         toggleLoading(true); // Start loading
-        const response = await axios.get('https://v1-api-je3y.onrender.com/academics/getAllProjects');
+        const response = await axios.get(`${getApiUrl()}/academics/getAllProjects`);
         setJsonData(response.data);
       } catch (error) {
         // handle error

@@ -230,15 +230,6 @@ const NavBar = ({
           </Box>
 
           <Box sx={{ flexGrow: 0, xs: "none" }}>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={20} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -272,6 +263,19 @@ const NavBar = ({
                 labelPlacement="start"
               />
             </Menu>
+
+
+            <IconButton
+              size="medium"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={20} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+
+
           </Box>
         </Toolbar>
       </Container>

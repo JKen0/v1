@@ -264,17 +264,17 @@ const NavBar = ({
               />
             </Menu>
 
-
-            <IconButton
-              size="medium"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={20} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-
+            {false &&
+              <IconButton
+                size="medium"
+                aria-label="show 17 new notifications"
+                color="inherit"
+              >
+                <Badge badgeContent={20} color="error">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>            
+            }
 
           </Box>
         </Toolbar>

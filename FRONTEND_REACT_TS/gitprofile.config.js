@@ -190,7 +190,28 @@ var CONFIG = {
   experience_mod: [
     {
       title:
-        'Research Project: Motion Capture & ML Analysis for Motion Recognition',
+        `Software Engineer / SQL Developer`,
+      company: 'Scale AI',
+      date: 'Apr 2024 - Present',
+      location: 'Hamilton, Ontario',
+      description: [
+        'Responsible for devising prompts designed to challenge our Language Model (LLM), pushing it to its limits and uncovering areas for improvement.',
+        'Analyze and modify the incorrect response from the LLM to align with the original prompt, ensuring accurate execution.',
+        'Enhance the overall functionality of the LLM through reinforcement learning by iteratively making incremental tweaks.',
+      ],
+      link: 'https://macsphere.mcmaster.ca/handle/11375/29390',
+      image: 'https://media.licdn.com/dms/image/C4D0BAQFUABvcOwaFGg/company-logo_200_200/0/1630493502009/scaleai_logo?e=2147483647&v=beta&t=yBrEdT6NZhPtXLKlu6aqQLXrfBmgpo3b2NiKMAqRako',
+      tags: [
+        'SQL',
+        'Python',
+        'Data-science',
+        'AI',
+        'Quality-assurance',
+      ],
+    },
+    {
+      title:
+        `Motion Capture and Machine Learning Researcher (Research)`,
       company: 'McMaster University',
       date: 'Jan 2023 - Dec 2023',
       location: 'Hamilton, Ontario',

@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const academicsRouter = require('./routes/academics');
 const spotifyRouter = require('./routes/spotify');
+const f1Router = require('./routes/f1');
 
 var app = express();
 
@@ -11,9 +12,10 @@ app.use(express.static(__dirname + '/public'))
 
 app.use('/academics', academicsRouter);
 app.use('/spotify', spotifyRouter);
+app.use('/f1', f1Router);
 
 app.get('/test', (req, res) => {
-    res.json({ status: 200, message: "test route woorking" });
+    res.json({ status: 200, message: "test route working" });
 });
 
 

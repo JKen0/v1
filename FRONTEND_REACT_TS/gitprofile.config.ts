@@ -219,7 +219,7 @@ const CONFIG = {
         `Software Engineer / SQL Developer`,
       company: 'Scale AI',
       date: 'Apr 2024 - Present',
-      location: 'Hamilton, Ontario',
+      location: 'San Francisco, California',
       description: [
         'Responsible for devising prompts designed to challenge our Language Model (LLM), pushing it to its limits and uncovering areas for improvement.',
         'Analyze and modify the incorrect response from the LLM to align with the original prompt, ensuring accurate execution.',

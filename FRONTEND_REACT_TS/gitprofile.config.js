@@ -199,7 +199,7 @@ var CONFIG = {
         'Analyze and modify the incorrect response from the LLM to align with the original prompt, ensuring accurate execution.',
         'Enhance the overall functionality of the LLM through reinforcement learning by iteratively making incremental tweaks.',
       ],
-      link: 'https://macsphere.mcmaster.ca/handle/11375/29390',
+      link: 'https://scale.com/',
       image: 'https://media.licdn.com/dms/image/C4D0BAQFUABvcOwaFGg/company-logo_200_200/0/1630493502009/scaleai_logo?e=2147483647&v=beta&t=yBrEdT6NZhPtXLKlu6aqQLXrfBmgpo3b2NiKMAqRako',
       tags: [
         'SQL',

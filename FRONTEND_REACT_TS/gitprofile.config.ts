@@ -216,9 +216,28 @@ const CONFIG = {
   experience_mod: [
     {
       title:
+        `Software / Data Engineer`,
+      company: 'HD Mutual Insurance Company',
+      date: 'July 2024 - Present',
+      location: 'Guelph, Ontario',
+      description: [
+
+      ],
+      link: 'https://hdmutual.com/',
+      image: 'https://hdmutual.com/wp-content/uploads/2024/04/HDMutual_InsuranceCompany_Logo_RGB-2048x542.png',
+      tags: [
+        'Data Warehouse',
+        'Python',
+        'Streamlit',
+        'FastAPI',
+        'PostgreSQL',
+      ],
+    },
+    {
+      title:
         `Software Engineer / SQL Developer`,
       company: 'Scale AI',
-      date: 'Apr 2024 - Present',
+      date: 'Apr 2024 - July 2024',
       location: 'San Francisco, California',
       description: [
         'Responsible for devising prompts designed to challenge our Language Model (LLM), pushing it to its limits and uncovering areas for improvement.',

@@ -8,7 +8,7 @@ import CONFIG from '../../../../gitprofile.config';
 import hdLogo from '../../../../images/hd-mutual-logo.png';
 import kennaLogo from '../../../../images/kenna-logo.jpg';
 import scaleLogo from '../../../../images/scale-ai-logo.jpg';
-import mcmasterLogo from '../../../../images/mcmaster-logo.jpg';
+import mcmasterLogo from '../../../../images/mcmaster-logo.png';
 
 const getCompanyLogo = (logoName: string) => {
   if (logoName === 'hd-mutual-logo') return hdLogo

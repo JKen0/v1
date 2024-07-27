@@ -5,6 +5,20 @@ import { ga, skeleton } from '../../../utils';
 import { Experience_MOD } from '../../../interface/article';
 import CONFIG from '../../../../gitprofile.config';
 
+import hdLogo from '../../../../images/hd-mutual-logo.png';
+import kennaLogo from '../../../../images/kenna-logo.jpg';
+import scaleLogo from '../../../../images/scale-ai-logo.jpg';
+import mcmasterLogo from '../../../../images/mcmaster-logo.jpg';
+
+const getCompanyLogo = (logoName: string) => {
+  if (logoName === 'hd-mutual-logo') return hdLogo
+  else if (logoName === 'kenna-logo') return kennaLogo
+  else if (logoName === 'scale-ai-logo') return scaleLogo
+  else if (logoName === 'mcmaster-logo') return mcmasterLogo
+  else return ''
+
+} 
+
 const BlogCard = ({
   loading,
   blog,
@@ -101,7 +115,7 @@ const BlogCard = ({
               <div className="avatar mb-5 md:mb-0 opacity-90">
                 <div className="w-24 h-24 mask mask-squircle">
                   <LazyImage
-                    src={experience.image}
+                    src={getCompanyLogo(experience.image)}
                     alt={'thumbnail'}
                     placeholder={skeleton({
                       widthCls: 'w-full',

@@ -117,7 +117,7 @@ var CONFIG = {
   blog: {
     source: 'dev', // medium | dev
     username: 'arifszn', // to hide blog section, keep it empty
-    limit: 5, // How many articles to display. Max is 10.
+    limit: 10, // How many articles to display. Max is 10.
   },
   googleAnalytics: {
     id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
@@ -198,7 +198,7 @@ var CONFIG = {
 
       ],
       link: 'https://hdmutual.com/',
-      image: 'https://hdmutual.com/wp-content/uploads/2024/04/HDMutual_InsuranceCompany_Logo_RGB-2048x542.png',
+      image: 'hd-mutual-logo',
       tags: [
         'Data Warehouse',
         'Python',
@@ -220,7 +220,7 @@ var CONFIG = {
         'Enhance the overall functionality of the LLM through reinforcement learning by iteratively making incremental tweaks.',
       ],
       link: 'https://scale.com/',
-      image: 'https://media.licdn.com/dms/image/C4D0BAQFUABvcOwaFGg/company-logo_200_200/0/1630493502009/scaleai_logo?e=2147483647&v=beta&t=yBrEdT6NZhPtXLKlu6aqQLXrfBmgpo3b2NiKMAqRako',
+      image: 'scale-ai-logo',
       tags: [
         'SQL',
         'Python',
@@ -243,7 +243,7 @@ var CONFIG = {
         'Research Results (Video): https://youtu.be/SbUXoQ0-G9Q',
       ],
       link: 'https://macsphere.mcmaster.ca/handle/11375/29390',
-      image: 'https://privatech.ca/wp-content/uploads/2015/04/mcmaster.jpg',
+      image: 'mcmaster-logo',
       tags: [
         'Python',
         'TensorFlow',
@@ -266,7 +266,7 @@ var CONFIG = {
       ],
       link: 'https://www.kenna.ca/',
       image:
-        'https://media.licdn.com/dms/image/C4E0BAQEjGLoIwliplg/company-logo_200_200/0/1630601311630/kennacommunications_logo?e=2147483647&v=beta&t=Ojlv8QTUp4qfwgFQbohDw0RlefdtQca-i57vj70Gmdo',
+        'kenna-logo',
       tags: [
         'JavaScript',
         'TypeScript',
@@ -291,10 +291,9 @@ var CONFIG = {
       ],
       link: 'https://www.kenna.ca/',
       image:
-        'https://media.licdn.com/dms/image/C4E0BAQEjGLoIwliplg/company-logo_200_200/0/1630601311630/kennacommunications_logo?e=2147483647&v=beta&t=Ojlv8QTUp4qfwgFQbohDw0RlefdtQca-i57vj70Gmdo',
+        'kenna-logo',
       tags: ['SQL', 'MS-SQL-Server', 'Tableau', 'Excel'],
     },
-
     {
       title: 'Teaching Assistant',
       company: 'McMaster University',
@@ -304,7 +303,7 @@ var CONFIG = {
         'Facilitated interactive tutorial sessions and provided one-on-one support to undergraduate students in topics such as Calculus, Linear Algebra, Analysis, Probability, Discrete Math, and Logic.',
       ],
       link: 'https://www.eng.mcmaster.ca/cas/',
-      image: 'https://privatech.ca/wp-content/uploads/2015/04/mcmaster.jpg',
+      image: 'mcmaster-logo',
       tags: ['Python', 'Expertise', 'Communication', 'Adaptable'],
     },
   ],
